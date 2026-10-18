@@ -92,7 +92,8 @@ storico.
     (2 = coppie o uno contro uno, 3 = tre giocatori; −/+ e rotella), nomi (default Noi/Loro/Squadra 3);
   - vince chi supera per primo la soglia col totale più alto (parità in testa: si continua);
   - nella pagina della mano, sotto i pulsanti (scorrendo), **voci rapide** da un tocco, oltre ai
-    punti scritti con +/− (carte calate, carte in mano):
+    punti scritti con +/− (carte calate, carte in mano); ogni tocco vibra (il totale può essere
+    fuori schermo):
     burraco: Chiusura +100, Burraco pulito +200, semipulito +150, sporco +100, Pozzetto non
     preso −100; canasta: Chiusura +100, Chiusura in mano +200, Canasta pulita +500, sporca
     +300, Tre rosso +100, Quattro tre rossi +800;
