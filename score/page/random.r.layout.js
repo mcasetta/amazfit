@@ -18,7 +18,9 @@ export const FIRST_BUTTON = { x: px(50), y: px(182), w: px(185), h: px(64), radi
 
 export const ORDER_BUTTON = { x: px(245), y: px(182), w: px(185), h: px(64), radius: px(32), text_size: px(24) }
 
-export const RESULT_Y = px(260)
+export const TEAMS_BUTTON = { x: px(140), y: px(256), w: px(200), h: px(64), radius: px(32), text_size: px(24) }
+
+export const RESULT_Y = px(334)
 export const RESULT_STEP = px(44)
 
 export const RESULT_LINE = { x: px(60), w: px(360), h: px(42), text_size: px(32) }

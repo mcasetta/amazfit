@@ -380,7 +380,7 @@ msgid "tool_random"
 msgstr "Casuale"
 
 msgid "tool_random_hint"
-msgstr "Chi inizia, ordine dei giocatori"
+msgstr "Chi inizia, ordine, squadre"
 
 msgid "roll"
 msgstr "Lancia"
@@ -436,3 +436,21 @@ msgstr "Partita in corso"
 
 msgid "source_manual"
 msgstr "Manuale"
+
+msgid "random_teams"
+msgstr "Squadre"
+
+msgid "teams_count"
+msgstr "Quante squadre"
+
+msgid "team_size"
+msgstr "Giocatori per squadra"
+
+msgid "make_teams"
+msgstr "Crea squadre"
+
+msgid "left_out"
+msgstr "Fuori"
+
+msgid "not_enough_players"
+msgstr "Non bastano i giocatori"

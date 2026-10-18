@@ -47,7 +47,8 @@ Page({
   },
 
   save(names) {
-    saveSetup(RANDOM_SETUP, { ...(loadSetup(RANDOM_SETUP) || {}), names })
+    // Teams made with the old names no longer apply
+    saveSetup(RANDOM_SETUP, { ...(loadSetup(RANDOM_SETUP) || {}), names, lastTeams: null })
     replace({ url: PAGE })
   },
 

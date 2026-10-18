@@ -131,8 +131,11 @@ storico.
   somma, ultimi 6 lanci; con 2d6 il 7 mostra "brigante!".
 - **Casuale**: in alto la fonte dei giocatori: **Partita in corso** (solo se ce n'è una) o
   **Manuale**, che apre una pagina per scegliere quanti (2–8, −/+) e scrivere i nomi (tocco =
-  tastiera); scelta e nomi ricordati. Sotto, i nomi in uso, poi **Chi inizia** (uno a caso) e
-  **Ordine** (tutti in ordine casuale).
+  tastiera); scelta e nomi ricordati. Sotto, i nomi in uso, poi **Chi inizia** (uno a caso),
+  **Ordine** (tutti in ordine casuale) e **Squadre**: pagina con **quante squadre** e
+  **giocatori per squadra** (−/+; se non bastano i giocatori "Non bastano i giocatori"), poi
+  **Crea squadre**: sotto, ogni squadra con i suoi nomi e chi resta **fuori** se avanzano
+  giocatori. Impostazioni e ultimo risultato ricordati (azzerato se cambiano i giocatori).
 - **Storico**: ultime 30 partite, `*` accanto al vincitore, dettaglio set e data. *Svuota* con
   conferma.
 
@@ -152,8 +155,9 @@ page/tally.js     tabellone giochi da tavolo
 page/dice.js      dadi (tocco o scuotendo il polso)
 page/random.js    chi inizia, ordine casuale (giocatori della partita o manuali)
 page/players.js   giocatori manuali per Casuale: quanti e nomi
+page/teams.js     squadre casuali
 page/pick.js      scelta da una lista (es. numero e facce dei dadi)
-lib/players.js    giocatori manuali di Casuale (chiave setup, nomi di default)
+lib/players.js    giocatori di Casuale: della partita in corso o manuali
 lib/board.js      motore giochi da tavolo: totali, obiettivo, spareggio, voci rapide per gioco
 lib/random.js     dadi, scelta e mescolamento casuali
 page/setup.js     nuova partita (generica sulle opzioni del gioco)

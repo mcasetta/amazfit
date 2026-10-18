@@ -37,3 +37,12 @@ export function shuffle(items, random = Math.random) {
   }
   return result
 }
+
+// Random teams: `count` teams of `size` players from the names; players who
+// don't fit (when count * size < names) are left out.
+// Returns { teams: [[names of team 1], ...], out: [names] }
+export function makeTeams(names, count, size, random = Math.random) {
+  const shuffled = shuffle(names, random)
+  const teams = Array.from({ length: count }, (_, i) => shuffled.slice(i * size, (i + 1) * size))
+  return { teams, out: shuffled.slice(count * size) }
+}

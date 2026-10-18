@@ -2,9 +2,16 @@ import { getText } from '@zos/i18n'
 import { createWidget, widget, align, prop } from '@zos/ui'
 import { push, replace } from '@zos/router'
 import { pick, shuffle } from '../lib/random'
-import { loadCurrentMatch, loadSetup, saveSetup } from '../lib/store'
+import { loadSetup, saveSetup } from '../lib/store'
 import { cueTap } from '../lib/cues'
-import { RANDOM_SETUP, DEFAULT_PLAYERS, defaultNames } from '../lib/players'
+import {
+  RANDOM_SETUP,
+  DEFAULT_PLAYERS,
+  SOURCE_MATCH,
+  SOURCE_MANUAL,
+  defaultNames,
+  randomPlayers,
+} from '../lib/players'
 import {
   COLOR_TEXT,
   COLOR_TEXT_DIM,
@@ -17,12 +24,11 @@ import {
 import * as Styles from 'zosLoader:./random.[pf].layout.js'
 
 const PAGE = 'page/random'
-const SOURCE_MATCH = 'match'
-const SOURCE_MANUAL = 'manual'
 
 // Random first player and random player order. Two sources on top: the
 // players of the match in progress (only when there is one) or players
 // entered by hand ("Manual" opens the editor: how many and their names).
+// "Teams" opens the random teams page with the same players.
 // The choice and the manual names are remembered.
 Page({
   state: {
@@ -31,12 +37,8 @@ Page({
   },
 
   build() {
-    const setup = loadSetup(RANDOM_SETUP) || {}
-    const match = loadCurrentMatch()
-    const matchNames = match && match.names && match.names.length >= 2 ? match.names : null
-    const manualNames = setup.names && setup.names.length >= 2 ? setup.names : defaultNames(DEFAULT_PLAYERS)
-    const source = matchNames && setup.source !== SOURCE_MANUAL ? SOURCE_MATCH : SOURCE_MANUAL
-    this.state.names = source === SOURCE_MATCH ? matchNames : manualNames
+    const { matchNames, source, names } = randomPlayers()
+    this.state.names = names
     const w = this.state.w
 
     const text = (style, color, value) =>
@@ -63,6 +65,7 @@ Page({
 
     button(Styles.FIRST_BUTTON, getText('first_player'), true, () => this.first())
     button(Styles.ORDER_BUTTON, getText('random_order'), true, () => this.order())
+    button(Styles.TEAMS_BUTTON, getText('random_teams'), true, () => push({ url: 'page/teams' }))
 
     // One line per player, filled by the result
     let y = Styles.RESULT_Y
@@ -75,7 +78,7 @@ Page({
   },
 
   setSource(source) {
-    saveSetup(RANDOM_SETUP, { ...(loadSetup(RANDOM_SETUP) || {}), source })
+    saveSetup(RANDOM_SETUP, { ...(loadSetup(RANDOM_SETUP) || {}), source, lastTeams: null })
     replace({ url: PAGE })
   },
 

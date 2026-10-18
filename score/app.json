@@ -42,7 +42,8 @@
             "page/dice",
             "page/random",
             "page/pick",
-            "page/players"
+            "page/players",
+            "page/teams"
           ]
         }
       },

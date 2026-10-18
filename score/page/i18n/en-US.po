@@ -380,7 +380,7 @@ msgid "tool_random"
 msgstr "Random"
 
 msgid "tool_random_hint"
-msgstr "First player, player order"
+msgstr "First player, order, teams"
 
 msgid "roll"
 msgstr "Roll"
@@ -436,3 +436,21 @@ msgstr "Current match"
 
 msgid "source_manual"
 msgstr "Manual"
+
+msgid "random_teams"
+msgstr "Teams"
+
+msgid "teams_count"
+msgstr "How many teams"
+
+msgid "team_size"
+msgstr "Players per team"
+
+msgid "make_teams"
+msgstr "Make teams"
+
+msgid "left_out"
+msgstr "Left out"
+
+msgid "not_enough_players"
+msgstr "Not enough players"
