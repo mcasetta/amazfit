@@ -23,3 +23,7 @@ zeus dev        # simulatore avviato prima; scegliere "Amazfit Balance 2"
 zeus build      # pacchetto .zab in dist/
 zeus preview    # QR da scansionare con la Zepp app in Developer Mode → installa sull'orologio
 ```
+
+## Licenza
+
+[MIT](LICENSE)
