@@ -264,3 +264,6 @@ msgstr "Red three"
 
 msgid "preset_four_red_threes"
 msgstr "Four red threes"
+
+msgid "preset_once"
+msgstr "Already used in this hand"

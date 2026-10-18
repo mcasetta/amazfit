@@ -44,18 +44,20 @@ export const BURRACO_OPTIONS = [{ key: 'target', values: [2005], number: true, i
 export const CANASTA_OPTIONS = [{ key: 'target', values: [5000], number: true, input: TARGET_INPUT }, SIDES_OPTION]
 
 // Quick entries offered when entering a hand, besides the typed +/- points
-// (cards melded / left in hand). label = i18n key.
+// (cards melded / left in hand). label = i18n key; once = 'side' (once per
+// player/team in a hand) or 'hand' (once in the hand among its group, e.g.
+// only one side goes out), see lib/hand.js presetAllowed().
 export const BURRACO_PRESETS = [
-  { label: 'preset_closing', value: 100 },
+  { label: 'preset_closing', value: 100, once: 'hand' },
   { label: 'preset_clean_burraco', value: 200 },
   { label: 'preset_semiclean_burraco', value: 150 },
   { label: 'preset_dirty_burraco', value: 100 },
-  { label: 'preset_no_pot', value: -100 },
+  { label: 'preset_no_pot', value: -100, once: 'side' },
 ]
 
 export const CANASTA_PRESETS = [
-  { label: 'preset_closing', value: 100 },
-  { label: 'preset_concealed_closing', value: 200 },
+  { label: 'preset_closing', value: 100, once: 'hand', group: 'closing' },
+  { label: 'preset_concealed_closing', value: 200, once: 'hand', group: 'closing' },
   { label: 'preset_natural_canasta', value: 500 },
   { label: 'preset_mixed_canasta', value: 300 },
   { label: 'preset_red_three', value: 100 },

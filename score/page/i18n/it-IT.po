@@ -264,3 +264,6 @@ msgstr "Tre rosso"
 
 msgid "preset_four_red_threes"
 msgstr "Quattro tre rossi"
+
+msgid "preset_once"
+msgstr "Già segnata in questa mano"
