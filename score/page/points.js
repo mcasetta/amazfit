@@ -5,6 +5,7 @@ import { loadCurrentMatch, saveCurrentMatch } from '../lib/store'
 import { handDraft, entriesSum, entriesText } from '../lib/hand'
 import { getGame } from '../lib/games'
 import { createCard } from '../lib/ui'
+import { cueTap } from '../lib/cues'
 import {
   COLOR_TEXT,
   COLOR_TEXT_DIM,
@@ -74,7 +75,11 @@ Page({
       let y = Styles.PRESETS_Y
       game.presets.forEach((preset) => {
         const value = preset.value < 0 ? `${preset.value}` : `+${preset.value}`
-        createCard({ ...Styles.PRESET, y }, { title: getText(preset.label), value }, () => this.add(preset.value))
+        createCard({ ...Styles.PRESET, y }, { title: getText(preset.label), value }, () => {
+          // The sum may be scrolled out of sight: the vibration confirms the tap
+          cueTap()
+          this.add(preset.value)
+        })
         y += Styles.PRESET_STEP
       })
       createWidget(widget.TEXT, { ...Styles.BOTTOM_SPACER, y, text: '' })
