@@ -1,16 +1,20 @@
 // Dice and random choices for the board game tools, pure (random source
 // injectable for tests)
 
-// Dice sets offered by the dice page, first = default (Catan)
-export const DICE_MODES = [
-  { id: '2d6', count: 2, sides: 6 },
-  { id: '1d6', count: 1, sides: 6 },
-  { id: '3d6', count: 3, sides: 6 },
-  { id: '1d20', count: 1, sides: 20 },
-]
+// Choices of the dice page: how many dice and how many faces each
+// (defaults: two six-sided dice, as in Catan)
+export const DICE_COUNTS = [1, 2, 3, 4, 5]
+export const DICE_FACES = [4, 6, 8, 10, 12, 20]
+const DEFAULT_COUNT = 2
+const DEFAULT_FACES = 6
 
-export function diceMode(id) {
-  return DICE_MODES.find((m) => m.id === id) || DICE_MODES[0]
+// { count, sides } from the saved choice, falling back to the defaults
+export function diceMode(saved) {
+  const s = saved || {}
+  return {
+    count: DICE_COUNTS.includes(s.count) ? s.count : DEFAULT_COUNT,
+    sides: DICE_FACES.includes(s.sides) ? s.sides : DEFAULT_FACES,
+  }
 }
 
 export function roll(mode, random = Math.random) {

@@ -5,7 +5,7 @@ import { COLOR_BG_CARD, COLOR_BG_CARD_PRESSED, COLOR_TEXT, COLOR_TEXT_DIM } from
 // second line. Returns setters to update the texts later.
 //
 // style: { x, y, w, h, radius, padding, text_size, sub_text_size }
-// content: { title, value?, subtitle? }
+// content: { title, value?, subtitle?, titleColor? }
 export function createCard(style, content, onTap) {
   const { x, y, w, h, radius, padding } = style
   const bg = createWidget(widget.FILL_RECT, { x, y, w, h, radius, color: COLOR_BG_CARD })
@@ -16,7 +16,7 @@ export function createCard(style, content, onTap) {
     y: twoLines ? y + Math.round(h * 0.12) : y,
     w: w - padding * 2,
     h: twoLines ? Math.round(h * 0.45) : h,
-    color: COLOR_TEXT,
+    color: content.titleColor || COLOR_TEXT,
     text_size: style.text_size,
     align_h: align.LEFT,
     align_v: align.CENTER_V,

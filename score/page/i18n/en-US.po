@@ -374,7 +374,7 @@ msgid "tool_dice"
 msgstr "Dice"
 
 msgid "tool_dice_hint"
-msgstr "2d6, 1d6, 3d6, d20"
+msgstr "1 to 5 dice, d4 to d20"
 
 msgid "tool_random"
 msgstr "Random"
@@ -391,8 +391,6 @@ msgstr "Tap or shake your wrist"
 msgid "robber"
 msgstr "robber!"
 
-msgid "match_players"
-msgstr "Players of the match"
 
 msgid "players_count"
 msgstr "players"
@@ -417,3 +415,24 @@ msgstr "Unused station"
 
 msgid "preset_european_express"
 msgstr "European Express"
+
+msgid "dice_count"
+msgstr "How many dice"
+
+msgid "dice_faces"
+msgstr "Faces"
+
+msgid "die"
+msgstr "die"
+
+msgid "dice"
+msgstr "dice"
+
+msgid "faces"
+msgstr "faces"
+
+msgid "source_match"
+msgstr "Current match"
+
+msgid "source_manual"
+msgstr "Manual"

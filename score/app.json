@@ -40,7 +40,9 @@
             "page/category",
             "page/tally",
             "page/dice",
-            "page/random"
+            "page/random",
+            "page/pick",
+            "page/players"
           ]
         }
       },

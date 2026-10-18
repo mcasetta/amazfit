@@ -374,7 +374,7 @@ msgid "tool_dice"
 msgstr "Dadi"
 
 msgid "tool_dice_hint"
-msgstr "2d6, 1d6, 3d6, d20"
+msgstr "Da 1 a 5 dadi, da d4 a d20"
 
 msgid "tool_random"
 msgstr "Casuale"
@@ -391,8 +391,6 @@ msgstr "Tocca o scuoti il polso"
 msgid "robber"
 msgstr "brigante!"
 
-msgid "match_players"
-msgstr "Giocatori della partita"
 
 msgid "players_count"
 msgstr "giocatori"
@@ -417,3 +415,24 @@ msgstr "Stazione non usata"
 
 msgid "preset_european_express"
 msgstr "Espresso europeo"
+
+msgid "dice_count"
+msgstr "Quanti dadi"
+
+msgid "dice_faces"
+msgstr "Facce"
+
+msgid "die"
+msgstr "dado"
+
+msgid "dice"
+msgstr "dadi"
+
+msgid "faces"
+msgstr "facce"
+
+msgid "source_match"
+msgstr "Partita in corso"
+
+msgid "source_manual"
+msgstr "Manuale"

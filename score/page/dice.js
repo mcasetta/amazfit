@@ -1,9 +1,9 @@
 import { getText } from '@zos/i18n'
 import { createWidget, widget, align, prop, event } from '@zos/ui'
-import { replace } from '@zos/router'
+import { push } from '@zos/router'
 import { Accelerometer } from '@zos/sensor'
-import { DICE_MODES, diceMode, roll } from '../lib/random'
-import { loadSetup, saveSetup } from '../lib/store'
+import { DICE_COUNTS, DICE_FACES, diceMode, roll } from '../lib/random'
+import { loadSetup } from '../lib/store'
 import { cueTap, stopCues } from '../lib/cues'
 import {
   COLOR_TEXT,
@@ -17,7 +17,6 @@ import {
 } from '../lib/theme'
 import * as Styles from 'zosLoader:./dice.[pf].layout.js'
 
-const PAGE = 'page/dice'
 const SETUP_KEY = 'dice'
 const MAX_HISTORY = 6
 // Rolling animation: a few random faces before the result
@@ -29,9 +28,10 @@ const SHAKE_PAUSE_MS = 1500
 // Catan: a 7 moves the robber
 const ROBBER_SUM = 7
 
-// Dice: tap the dice, the Roll button or shake the wrist. The top button
-// changes the set (2d6, 1d6, 3d6, d20, remembered). Sum and the last rolls
-// below; with 2d6 a 7 shows the Catan robber.
+// Dice: tap the dice, the Roll button or shake the wrist. The two buttons on
+// top open a list to choose how many dice (1-5) and how many faces (d4-d20),
+// remembered. Sum and the last rolls below; with 2d6 a 7 shows the Catan
+// robber. The page is rebuilt when coming back from a list.
 Page({
   state: {
     mode: null,
@@ -44,22 +44,30 @@ Page({
   },
 
   build() {
-    const setup = loadSetup(SETUP_KEY) || {}
-    const mode = diceMode(setup.mode)
+    const mode = diceMode(loadSetup(SETUP_KEY))
     this.state.mode = mode
     const w = this.state.w
 
-    createWidget(widget.BUTTON, {
-      ...Styles.MODE_BUTTON,
-      normal_color: COLOR_BG_CARD,
-      press_color: COLOR_BG_CARD_PRESSED,
-      color: COLOR_TEXT,
-      text: mode.id,
-      click_func: () => this.nextMode(),
-    })
+    const choice = (style, label, onClick) =>
+      createWidget(widget.BUTTON, {
+        ...style,
+        normal_color: COLOR_BG_CARD,
+        press_color: COLOR_BG_CARD_PRESSED,
+        color: COLOR_TEXT,
+        text: label,
+        click_func: onClick,
+      })
+    choice(Styles.COUNT_BUTTON, this.countLabel(mode.count), () =>
+      this.pick('dice_count', 'count', DICE_COUNTS, DICE_COUNTS.map((n) => this.countLabel(n)), mode.count),
+    )
+    choice(Styles.FACES_BUTTON, `d${mode.sides}`, () =>
+      this.pick('dice_faces', 'sides', DICE_FACES, DICE_FACES.map((n) => `d${n} (${n} ${getText('faces')})`), mode.sides),
+    )
 
-    // Dice centered in a row
-    const { size, gap, y } = Styles.DIE
+    // Dice centered in a row, smaller when there are many
+    const { gap, y, maxRowWidth } = Styles.DIE
+    const size = Math.min(Styles.DIE.size, Math.floor((maxRowWidth - (mode.count - 1) * gap) / mode.count))
+    const textSize = Math.round((size * Styles.DIE.text_size) / Styles.DIE.size)
     const rowWidth = mode.count * size + (mode.count - 1) * gap
     const x0 = Math.round((Styles.SCREEN_W - rowWidth) / 2)
     w.faces = Array.from({ length: mode.count }, (_, i) => {
@@ -70,7 +78,7 @@ Page({
         y,
         w: size,
         h: size,
-        text_size: Styles.DIE.text_size,
+        text_size: textSize,
         color: COLOR_TEXT_ON_ACCENT,
         align_h: align.CENTER_H,
         align_v: align.CENTER_V,
@@ -107,10 +115,14 @@ Page({
     stopCues()
   },
 
-  nextMode() {
-    const i = DICE_MODES.indexOf(this.state.mode)
-    saveSetup(SETUP_KEY, { mode: DICE_MODES[(i + 1) % DICE_MODES.length].id })
-    replace({ url: PAGE })
+  // "2 dice"
+  countLabel(n) {
+    return `${n} ${getText(n === 1 ? 'die' : 'dice')}`
+  },
+
+  // List page; it saves the choice in the dice setup
+  pick(title, field, values, labels, current) {
+    push({ url: 'page/pick', params: JSON.stringify({ title, setup: SETUP_KEY, field, values, labels, current }) })
   },
 
   // Shaking the wrist rolls (if the accelerometer is there)
@@ -163,7 +175,7 @@ Page({
     cueTap()
     let text = mode.count > 1 ? `= ${sum}` : ''
     let color = COLOR_ACCENT
-    if (mode.id === '2d6' && sum === ROBBER_SUM) {
+    if (mode.count === 2 && mode.sides === 6 && sum === ROBBER_SUM) {
       text = `= ${sum} · ${getText('robber')}`
       color = COLOR_HINT
     }

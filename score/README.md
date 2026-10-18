@@ -125,11 +125,14 @@ storico.
   - **Puerto Rico** (3–5): categorie gettoni PV, edifici, bonus grandi edifici. (Spareggio
     dobloni + merci non gestito: in parità nessun vincitore.)
 - **Strumenti** (voce di primo livello):
-- **Dadi**: 2d6 (default), 1d6, 3d6, d20 (pulsante in alto, ricordato); lancio toccando i dadi,
-  **Lancia** o **scuotendo il polso** (accelerometro); breve animazione, vibrazione, somma,
-  ultimi 6 lanci; con 2d6 il 7 mostra "brigante!".
-- **Casuale**: **Chi inizia** (un giocatore a caso) e **Ordine** (tutti in ordine casuale). Usa i
-  giocatori della partita in corso, altrimenti G1..Gn con numero scelto con −/+ (2–6).
+- **Dadi**: due pulsanti in alto aprono una lista per scegliere **quanti dadi** (1–5) e **quante
+  facce** (d4, d6, d8, d10, d12, d20), scelta ricordata (default 2 dadi d6). Lancio toccando i
+  dadi, **Lancia** o **scuotendo il polso** (accelerometro); breve animazione, vibrazione,
+  somma, ultimi 6 lanci; con 2d6 il 7 mostra "brigante!".
+- **Casuale**: in alto la fonte dei giocatori: **Partita in corso** (solo se ce n'è una) o
+  **Manuale**, che apre una pagina per scegliere quanti (2–8, −/+) e scrivere i nomi (tocco =
+  tastiera); scelta e nomi ricordati. Sotto, i nomi in uso, poi **Chi inizia** (uno a caso) e
+  **Ordine** (tutti in ordine casuale).
 - **Storico**: ultime 30 partite, `*` accanto al vincitore, dettaglio set e data. *Svuota* con
   conferma.
 
@@ -147,7 +150,10 @@ page/index.js     home: riprendi, categorie, storico
 page/category.js  giochi e strumenti di una categoria
 page/tally.js     tabellone giochi da tavolo
 page/dice.js      dadi (tocco o scuotendo il polso)
-page/random.js    chi inizia, ordine casuale
+page/random.js    chi inizia, ordine casuale (giocatori della partita o manuali)
+page/players.js   giocatori manuali per Casuale: quanti e nomi
+page/pick.js      scelta da una lista (es. numero e facce dei dadi)
+lib/players.js    giocatori manuali di Casuale (chiave setup, nomi di default)
 lib/board.js      motore giochi da tavolo: totali, obiettivo, spareggio, voci rapide per gioco
 lib/random.js     dadi, scelta e mescolamento casuali
 page/setup.js     nuova partita (generica sulle opzioni del gioco)
