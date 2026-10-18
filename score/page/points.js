@@ -131,7 +131,7 @@ Page({
       return
     }
     if (!preset.transfer && !presetAllowed(this.draft(), this.state.player, preset, this.state.presets)) {
-      showToast({ content: getText('preset_once') })
+      showToast({ content: getText(preset.max ? 'preset_max' : 'preset_once') })
       return
     }
     // Held by one player at a time: taken away from whoever had it

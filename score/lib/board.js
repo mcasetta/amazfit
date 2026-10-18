@@ -33,19 +33,27 @@ export const CATAN_PRESETS = [
 
 export const CARCASSONNE_PRESETS = [{ label: 'preset_monastery', value: 9 }]
 
-// Route points by length: 1, 2, 4, 7, 10, 15
-export const TICKET_PRESETS = [
-  ...[
-    [1, 1],
-    [2, 2],
-    [3, 4],
-    [4, 7],
-    [5, 10],
-    [6, 15],
-  ].map(([length, value]) => ({ label: `preset_route_${length}`, value })),
+// Ticket to Ride route points by length
+const ROUTE_POINTS = { 1: 1, 2: 2, 3: 4, 4: 7, 5: 10, 6: 15, 8: 21 }
+const routes = (lengths) => lengths.map((length) => ({ label: `preset_route_${length}`, value: ROUTE_POINTS[length] }))
+const TICKETS = [
   { label: 'preset_tickets_done', value: 0, ask: true },
   { label: 'preset_tickets_failed', value: 0, ask: true, sign: -1 },
+]
+
+export const TICKET_PRESETS = [
+  ...routes([1, 2, 3, 4, 5, 6]),
+  ...TICKETS,
   { label: 'preset_longest_route', value: 10, transfer: true },
+]
+
+// Europe: routes up to 8, 4 points for each of the 3 stations not used,
+// European Express (longest continuous path) +10
+export const TICKET_EUROPE_PRESETS = [
+  ...routes([1, 2, 3, 4, 6, 8]),
+  ...TICKETS,
+  { label: 'preset_unused_station', value: 4, max: 3 },
+  { label: 'preset_european_express', value: 10, transfer: true },
 ]
 
 export const DUEL_PRESETS = [

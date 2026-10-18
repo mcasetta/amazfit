@@ -1,7 +1,8 @@
 # Score (Segnapunti)
 
 Segnapunti per **Amazfit Balance 2 XT**. Giochi: **Sport** (padel, calcio), **Carte** (a punti, a
-eliminazione es. Scala 40, burraco, canasta); **Giochi da tavolo** (Catan, Carcassonne, Ticket to Ride, 7 Wonders Duel, Puerto Rico); **Strumenti**: **Dadi** e **Casuale**. Pensata per aggiungere altri giochi (burraco, canasta...) senza toccare home, setup e
+eliminazione es. Scala 40, burraco, canasta); **Giochi da tavolo** (Catan, Carcassonne, Ticket to Ride, Ticket to Ride Europa, 7 Wonders Duel,
+Puerto Rico); **Strumenti**: **Dadi** e **Casuale**. Pensata per aggiungere altri giochi (burraco, canasta...) senza toccare home, setup e
 storico.
 
 - Permessi: `device:os.local_storage`, `device:os.accelerometer` (dadi scuotendo il polso)
@@ -114,6 +115,9 @@ storico.
   - **Carcassonne** (2–6): punti con +/−, Monastero +9.
   - **Ticket to Ride** (2–5): tratte da 1–6 vagoni (+1 +2 +4 +7 +10 +15), Biglietti completati
     e falliti (categorie: si scrive il totale), Percorso più lungo +10 (passa di mano).
+  - **Ticket to Ride Europa** (2–5): tratte da 1, 2, 3, 4, 6, 8 vagoni (+1 +2 +4 +7 +15 +21),
+    biglietti come sopra, **Stazione non usata** +4 (massimo 3 per giocatore, poi "Massimo
+    raggiunto"), **Espresso europeo** +10 (passa di mano).
   - **7 Wonders Duel** (2): conteggio finale per **categorie** (si tocca la categoria e si scrive
     il valore, riscriverla lo sostituisce, il valore appare a destra): civili, scienza,
     commercio, gilde, meraviglie, gettoni progresso, monete (si scrivono le monete, 1 punto
@@ -182,8 +186,7 @@ Burraco e canasta sono entry sul motore carte con opzioni proprie (`BURRACO_OPTI
 
 - Prova in campo (toccabilità con mani sudate, leggibilità al sole,
   vibrazioni, risveglio sul tabellone).
-- Spareggi di Puerto Rico (dobloni + merci); altre espansioni (es. Ticket to Ride Europa:
-  stazioni, tratte da 8).
+- Spareggi di Puerto Rico (dobloni + merci); altre espansioni.
 - Cambio ordine di battuta a inizio set (oggi fisso per tutta la partita) e cambio lato dei
   giocatori.
 - Possibili: tasti fisici per segnare senza guardare, tennis/ping pong (stesso schema del padel).

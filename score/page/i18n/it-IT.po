@@ -268,6 +268,9 @@ msgstr "Quattro tre rossi"
 msgid "preset_once"
 msgstr "Già segnata in questa mano"
 
+msgid "preset_max"
+msgstr "Massimo raggiunto"
+
 msgid "game_catan"
 msgstr "Catan"
 
@@ -402,3 +405,15 @@ msgstr "Ordine"
 
 msgid "category_tools"
 msgstr "Strumenti"
+
+msgid "game_ticket_europe"
+msgstr "Ticket to Ride Europa"
+
+msgid "preset_route_8"
+msgstr "Tratta da 8"
+
+msgid "preset_unused_station"
+msgstr "Stazione non usata"
+
+msgid "preset_european_express"
+msgstr "Espresso europeo"

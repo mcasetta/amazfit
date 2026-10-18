@@ -9,7 +9,7 @@ round 480x480; girano anche sugli altri Zepp OS round 480). Sviluppati con la CL
 | [hello-world](hello-world/) | Primo mini program, prova della toolchain | ✅ simulatore |
 | [sensor-lab](sensor-lab/) | Letture live dei sensori (battito, GPS, bussola, barometro...) | ✅ simulatore |
 | [pulse](pulse/) | Timer a intervalli (stretching, plank, ripetute) | ✅ simulatore |
-| [score](score/) | Segnapunti: padel, calcio con timer cambi, carte (a punti, a eliminazione, burraco, canasta), giochi da tavolo (Catan, Carcassonne, Ticket to Ride, 7 Wonders Duel, Puerto Rico), dadi | ✅ simulatore |
+| [score](score/) | Segnapunti: padel, calcio con timer cambi, carte (a punti, a eliminazione, burraco, canasta), giochi da tavolo (Catan, Carcassonne, Ticket to Ride e Europa, 7 Wonders Duel, Puerto Rico), dadi | ✅ simulatore |
 | [waypoint](waypoint/) | Segnaposto: salva un posto e riportami lì, QR per Google Maps | ✅ simulatore |
 
 Ogni app ha il suo `README.md` (funzioni, struttura, prossimi passi).

@@ -47,12 +47,13 @@ export function presetTotal(entries, label) {
 }
 
 // Quick entries (presets), defined by each game:
-//   { label, value, once?, group?, transfer?, ask?, per?, sign? }
+//   { label, value, once?, max?, group?, transfer?, ask?, per?, sign? }
 //   label     i18n key, also stored in the entry
 //   value     points added by a tap
 //   once      'side': once per player/team (e.g. pot not taken);
 //             'all': once among all players, for any preset of the same
 //             group (e.g. closing or concealed closing: only one side goes out)
+//   max       at most this many times per player (e.g. 3 unused stations)
 //   transfer  held by one player at a time: adding it to a player removes it
 //             from whoever had it (Catan longest road)
 //   ask       a category typed on the numeric keyboard instead of a fixed
@@ -68,6 +69,7 @@ function sameGroup(presets, preset) {
 
 // Returns true when the preset can still be added for this player
 export function presetAllowed(draft, player, preset, presets) {
+  if (preset.max && presetCount(draft[player], preset.label) >= preset.max) return false
   if (!preset.once) return true
   if (preset.once === 'side') return presetCount(draft[player], preset.label) === 0
   const group = sameGroup(presets, preset)
