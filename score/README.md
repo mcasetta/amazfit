@@ -1,9 +1,11 @@
 # Score (Segnapunti)
 
 Segnapunti per **Amazfit Balance 2 XT**. Giochi: **Sport** (padel, calcio), **Carte** (a punti, a
-eliminazione es. Scala 40, burraco, canasta); **Giochi da tavolo** in arrivo. Pensata per aggiungere altri giochi (burraco, canasta...) senza toccare home, setup e
+eliminazione es. Scala 40, burraco, canasta); **Giochi da tavolo** (Catan, Carcassonne, Ticket to Ride, 7 Wonders Duel, Puerto Rico) più
+strumenti **Dadi** e **Casuale**. Pensata per aggiungere altri giochi (burraco, canasta...) senza toccare home, setup e
 storico.
 
+- Permessi: `device:os.local_storage`, `device:os.accelerometer` (dadi scuotendo il polso)
 - appId: `23478` · API level: 4.0 · schermo: round 480x480 · versione 0.1.0
 - Stato: ✅ compila (`zeus build`) · ✅ funziona nel simulatore (2026-10-18) · 📱 da provare in campo
 - Icona: punteggio 6-4 su cerchio blu/rosso con pallina (`private/scripts/make-score-icon.ps1`)
@@ -11,7 +13,7 @@ storico.
 ## Cosa fa
 
 - **Home**: *Riprendi* la partita in corso (con il punteggio), le **categorie** (Sport, Carte,
-  Giochi da tavolo: "In arrivo" finché vuota), *Storico*. Una categoria apre la lista dei suoi
+  Giochi da tavolo), *Storico*. Una categoria apre la lista dei suoi
   giochi (*Nuova partita*).
 - **Nuova partita** (padel): *Inizia* in alto (ricorda l'ultima configurazione), poi per ogni
   squadra il nome e i due giocatori (**una lettera** ciascuno, default `1`/`2`: il primo gioca a
@@ -101,6 +103,29 @@ storico.
     +300, Tre rosso +100, Quattro tre rossi +800;
   - canasta: accanto a ogni squadra l'**apertura minima** in base al totale (`min 50`:
     negativo 15, fino a 1495 50, fino a 2995 90, poi 120).
+- **Giochi da tavolo** (pagina `tally`): una riga per giocatore col totale, tocco = pagina
+  delle voci del giocatore (stessa pagina delle carte: +/−, Annulla sua ultima voce, voci rapide
+  scorrendo). I punti si segnano in qualsiasi momento della partita (non a mani). **Annulla** sul
+  tabellone toglie l'ultima voce di chiunque (chiede conferma dicendo di chi). **Fine** →
+  storico, vince il totale più alto.
+  - **Catan** (3–6 giocatori): si parte da 2 (due colonie), vince chi arriva a **10**
+    (modificabile, avviso sul tabellone). Voci: Colonia +1, Città (da colonia) +1, Carta punto
+    vittoria +1, **Strada più lunga** +2 ed **Esercito più grande** +2 che **passano di mano**
+    (assegnarle a un giocatore le toglie a chi le aveva).
+  - **Carcassonne** (2–6): punti con +/−, Monastero +9.
+  - **Ticket to Ride** (2–5): tratte da 1–6 vagoni (+1 +2 +4 +7 +10 +15), Biglietti completati
+    e falliti (categorie: si scrive il totale), Percorso più lungo +10 (passa di mano).
+  - **7 Wonders Duel** (2): conteggio finale per **categorie** (si tocca la categoria e si scrive
+    il valore, riscriverla lo sostituisce, il valore appare a destra): civili, scienza,
+    commercio, gilde, meraviglie, gettoni progresso, monete (si scrivono le monete, 1 punto
+    ogni 3), militare. Parità: vince chi ha più punti civili.
+  - **Puerto Rico** (3–5): categorie gettoni PV, edifici, bonus grandi edifici. (Spareggio
+    dobloni + merci non gestito: in parità nessun vincitore.)
+- **Dadi**: 2d6 (default), 1d6, 3d6, d20 (pulsante in alto, ricordato); lancio toccando i dadi,
+  **Lancia** o **scuotendo il polso** (accelerometro); breve animazione, vibrazione, somma,
+  ultimi 6 lanci; con 2d6 il 7 mostra "brigante!".
+- **Casuale**: **Chi inizia** (un giocatore a caso) e **Ordine** (tutti in ordine casuale). Usa i
+  giocatori della partita in corso, altrimenti G1..Gn con numero scelto con −/+ (2–6).
 - **Storico**: ultime 30 partite, `*` accanto al vincitore, dettaglio set e data. *Svuota* con
   conferma.
 
@@ -115,7 +140,12 @@ lib/cues.js       vibrazioni per evento
 lib/theme.js      colori (lati del tabellone, accento giallo pallina)
 lib/ui.js         createCard() (copiata da pulse)
 page/index.js     home: riprendi, categorie, storico
-page/category.js  giochi di una categoria
+page/category.js  giochi e strumenti di una categoria
+page/tally.js     tabellone giochi da tavolo
+page/dice.js      dadi (tocco o scuotendo il polso)
+page/random.js    chi inizia, ordine casuale
+lib/board.js      motore giochi da tavolo: totali, obiettivo, spareggio, voci rapide per gioco
+lib/random.js     dadi, scelta e mescolamento casuali
 page/setup.js     nuova partita (generica sulle opzioni del gioco)
 page/padel.js     tabellone padel
 page/football.js  tabellone calcio con timer cambi
@@ -152,7 +182,8 @@ Burraco e canasta sono entry sul motore carte con opzioni proprie (`BURRACO_OPTI
 
 - Prova in campo (toccabilità con mani sudate, leggibilità al sole,
   vibrazioni, risveglio sul tabellone).
-- Giochi da tavolo (categoria pronta, vuota).
+- Spareggi di Puerto Rico (dobloni + merci); altre espansioni (es. Ticket to Ride Europa:
+  stazioni, tratte da 8).
 - Cambio ordine di battuta a inizio set (oggi fisso per tutta la partita) e cambio lato dei
   giocatori.
 - Possibili: tasti fisici per segnare senza guardare, tennis/ping pong (stesso schema del padel).

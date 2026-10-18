@@ -3,7 +3,17 @@ import { createWidget, widget, align, prop, event, createKeyboard, deleteKeyboar
 import { back } from '@zos/router'
 import { showToast } from '@zos/interaction'
 import { loadCurrentMatch, saveCurrentMatch } from '../lib/store'
-import { handDraft, entriesSum, entriesText, presetEntry, presetCount, presetAllowed } from '../lib/hand'
+import {
+  handDraft,
+  entriesSum,
+  entriesText,
+  presetEntry,
+  presetCount,
+  presetTotal,
+  presetAllowed,
+  askedValue,
+} from '../lib/hand'
+import { draft as boardDraft, totals as boardTotals } from '../lib/board'
 import { getGame } from '../lib/games'
 import { cueTap } from '../lib/cues'
 import {
@@ -21,17 +31,20 @@ import * as Styles from 'zosLoader:./points.[pf].layout.js'
 
 const MAX_POINTS = 99999
 
-// Entries of one player in the hand being entered: "+" adds and "-"
-// subtracts the number typed on the numeric keyboard, Undo removes the last
-// entry. Games with presets (burraco, canasta) list quick entries below
-// (closing, canastas...), reached by scrolling, each with how many times it
-// was used in this hand; some are allowed once (closing, pot not taken). Every change is saved in the
-// hand draft right away.
+// Entries of one player: in the hand being entered (card games) or in the
+// whole match (board games, "tally"). "+" adds and "-" subtracts the number
+// typed on the numeric keyboard, Undo removes the player's last entry.
+// Games with presets list quick entries below, reached by scrolling (see
+// lib/hand.js): fixed values show how many times they were used (small, on
+// the left) and may be allowed once or move between players; categories
+// (end of game scoring) ask for their value and show it on the right, typing
+// a category again replaces it. Every change is saved right away.
 Page({
   state: {
     match: null,
     player: 0,
     presets: [],
+    tally: false,
     w: {},
   },
 
@@ -50,6 +63,8 @@ Page({
       return
     }
     this.state.match = match
+    const game = getGame(match.gameId)
+    this.state.tally = !!(game && game.tally)
     const w = this.state.w
     const text = (style, color, value) =>
       createWidget(widget.TEXT, { ...style, color, align_h: align.CENTER_H, align_v: align.CENTER_V, text: value })
@@ -72,14 +87,13 @@ Page({
     button(Styles.UNDO_BUTTON, getText('undo'), COLOR_BG_CARD, COLOR_BG_CARD_PRESSED, COLOR_TEXT, () => this.undo())
     button(Styles.OK_BUTTON, getText('ok'), COLOR_ACCENT, COLOR_ACCENT_PRESSED, COLOR_TEXT_ON_ACCENT, () => back())
 
-    const game = getGame(match.gameId)
     this.state.presets = (game && game.presets) || []
     if (this.state.presets.length > 0) {
       let y = Styles.PRESETS_Y
-      w.counts = this.state.presets.map((preset) => {
-        const count = this.presetRow(y, preset)
+      w.presetRows = this.state.presets.map((preset) => {
+        const row = this.presetRow(y, preset)
         y += Styles.PRESET_STEP
-        return count
+        return row
       })
       createWidget(widget.TEXT, { ...Styles.BOTTOM_SPACER, y, text: '' })
     }
@@ -87,8 +101,8 @@ Page({
     this.render()
   },
 
-  // Row of a quick entry: count in this hand (small, left), label, value.
-  // Returns the count text widget.
+  // Row of a quick entry: times used (small, left), label, value (or the
+  // category total). Returns the two texts to update.
   presetRow(y, preset) {
     const { x, w, h, radius } = Styles.PRESET
     const bg = createWidget(widget.FILL_RECT, { x, y, w, h, radius, color: COLOR_BG_CARD })
@@ -96,7 +110,8 @@ Page({
       createWidget(widget.TEXT, { ...style, y: y + style.y, color, text: value, align_h: alignH, align_v: align.CENTER_V })
     const count = text(Styles.PRESET_COUNT, COLOR_ACCENT, '', align.CENTER_H)
     const label = text(Styles.PRESET_LABEL, COLOR_TEXT, getText(preset.label), align.LEFT)
-    const value = text(Styles.PRESET_VALUE, COLOR_TEXT, preset.value < 0 ? `${preset.value}` : `+${preset.value}`, align.RIGHT)
+    const valueText = preset.ask ? '' : preset.value < 0 ? `${preset.value}` : `+${preset.value}`
+    const value = text(Styles.PRESET_VALUE, preset.ask ? COLOR_ACCENT : COLOR_TEXT, valueText, align.RIGHT)
 
     // Texts sit on top of the background, so every widget forwards the tap
     const setPressed = (pressed) => bg.setProperty(prop.MORE, { color: pressed ? COLOR_BG_CARD_PRESSED : COLOR_BG_CARD })
@@ -107,22 +122,68 @@ Page({
         this.addPreset(preset)
       })
     })
-    return count
+    return { count, value }
   },
 
   addPreset(preset) {
-    const draft = handDraft(this.state.match)
-    if (!presetAllowed(draft, this.state.player, preset, this.state.presets)) {
+    if (preset.ask) {
+      this.askCategory(preset)
+      return
+    }
+    if (!preset.transfer && !presetAllowed(this.draft(), this.state.player, preset, this.state.presets)) {
       showToast({ content: getText('preset_once') })
       return
     }
+    // Held by one player at a time: taken away from whoever had it
+    if (preset.transfer) this.removePreset(preset.label, null)
     // The sum may be scrolled out of sight: the vibration confirms the tap
     cueTap()
     this.add(presetEntry(preset))
   },
 
+  // Category value on the numeric keyboard; replaces the previous one
+  askCategory(preset) {
+    createKeyboard({
+      inputType: inputType.NUM,
+      text: '',
+      onComplete: (_, result) => {
+        deleteKeyboard()
+        const typed = Math.abs(parseInt(((result && result.data) || '').trim(), 10))
+        if (isNaN(typed)) return
+        this.removePreset(preset.label, this.state.player)
+        const value = askedValue(preset, Math.min(typed, MAX_POINTS))
+        if (value === 0) {
+          this.save()
+          return
+        }
+        cueTap()
+        this.add({ p: preset.label, v: value })
+      },
+      onCancel: () => deleteKeyboard(),
+    })
+  },
+
+  // Entries of every player: this hand (cards) or the whole match (board)
+  draft() {
+    return this.state.tally ? boardDraft(this.state.match) : handDraft(this.state.match)
+  },
+
   entries() {
-    return handDraft(this.state.match)[this.state.player]
+    return this.draft()[this.state.player]
+  },
+
+  // Drops the entries of a preset, of one player or of everyone (player null)
+  removePreset(label, player) {
+    const { match } = this.state
+    const isIt = (entry) => typeof entry !== 'number' && entry.p === label
+    if (this.state.tally) {
+      match.log = match.log.filter((x) => !(isIt(x.e) && (player === null || x.p === player)))
+    } else {
+      handDraft(match).forEach((entries, i) => {
+        if (player !== null && i !== player) return
+        for (let k = entries.length - 1; k >= 0; k--) if (isIt(entries[k])) entries.splice(k, 1)
+      })
+    }
   },
 
   // Numeric keyboard for the amount; the sign comes from the button pressed
@@ -141,13 +202,24 @@ Page({
   },
 
   add(entry) {
-    this.entries().push(entry)
+    const { match, player } = this.state
+    if (this.state.tally) match.log.push({ p: player, e: entry })
+    else handDraft(match)[player].push(entry)
     this.save()
   },
 
   undo() {
-    if (this.entries().length === 0) return
-    this.entries().pop()
+    const { match, player } = this.state
+    if (this.state.tally) {
+      for (let k = match.log.length - 1; k >= 0; k--) {
+        if (match.log[k].p === player) {
+          match.log.splice(k, 1)
+          break
+        }
+      }
+    } else {
+      handDraft(match)[player].pop()
+    }
     this.save()
   },
 
@@ -158,12 +230,19 @@ Page({
 
   render() {
     const { w } = this.state
+    const { match, player, tally } = this.state
     const entries = this.entries()
-    w.sum.setProperty(prop.MORE, { text: `${entriesSum(entries)}` })
+    const sum = tally ? boardTotals(match)[player] : entriesSum(entries)
+    w.sum.setProperty(prop.MORE, { text: `${sum}` })
     w.entries.setProperty(prop.MORE, { text: entriesText(entries) || getText('no_entries') })
     this.state.presets.forEach((preset, i) => {
+      const row = w.presetRows[i]
+      if (preset.ask) {
+        row.value.setProperty(prop.MORE, { text: `${presetTotal(entries, preset.label)}` })
+        return
+      }
       const n = presetCount(entries, preset.label)
-      w.counts[i].setProperty(prop.MORE, { text: n > 0 ? `${n}` : '' })
+      row.count.setProperty(prop.MORE, { text: n > 0 ? `${n}` : '' })
     })
   },
 })

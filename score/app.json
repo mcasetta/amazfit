@@ -10,10 +10,11 @@
     },
     "icon": "icon.png",
     "vender": "mcasetta",
-    "description": "Scoreboard for padel, football and card games"
+    "description": "Scoreboard for sports, card and board games, with dice"
   },
   "permissions": [
-    "device:os.local_storage"
+    "device:os.local_storage",
+    "device:os.accelerometer"
   ],
   "runtime": {
     "apiVersion": {
@@ -36,7 +37,10 @@
             "page/number",
             "page/points",
             "page/football",
-            "page/category"
+            "page/category",
+            "page/tally",
+            "page/dice",
+            "page/random"
           ]
         }
       },

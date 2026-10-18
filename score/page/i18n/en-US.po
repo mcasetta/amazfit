@@ -267,3 +267,135 @@ msgstr "Four red threes"
 
 msgid "preset_once"
 msgstr "Already used in this hand"
+
+msgid "game_catan"
+msgstr "Catan"
+
+msgid "game_carcassonne"
+msgstr "Carcassonne"
+
+msgid "game_ticket"
+msgstr "Ticket to Ride"
+
+msgid "game_duel"
+msgstr "7 Wonders Duel"
+
+msgid "game_puerto_rico"
+msgstr "Puerto Rico"
+
+msgid "hint_end_scoring"
+msgstr "End of game scoring"
+
+msgid "tally_hint"
+msgstr "tap a player"
+
+msgid "preset_settlement"
+msgstr "Settlement"
+
+msgid "preset_city"
+msgstr "City (upgrade)"
+
+msgid "preset_vp_card"
+msgstr "Victory point card"
+
+msgid "preset_longest_road"
+msgstr "Longest road"
+
+msgid "preset_largest_army"
+msgstr "Largest army"
+
+msgid "preset_monastery"
+msgstr "Monastery"
+
+msgid "preset_route_1"
+msgstr "Route of 1"
+
+msgid "preset_route_2"
+msgstr "Route of 2"
+
+msgid "preset_route_3"
+msgstr "Route of 3"
+
+msgid "preset_route_4"
+msgstr "Route of 4"
+
+msgid "preset_route_5"
+msgstr "Route of 5"
+
+msgid "preset_route_6"
+msgstr "Route of 6"
+
+msgid "preset_tickets_done"
+msgstr "Tickets completed"
+
+msgid "preset_tickets_failed"
+msgstr "Tickets failed"
+
+msgid "preset_longest_route"
+msgstr "Longest route"
+
+msgid "cat_civilian"
+msgstr "Civilian (blue)"
+
+msgid "cat_science"
+msgstr "Science (green)"
+
+msgid "cat_commercial"
+msgstr "Commercial (yellow)"
+
+msgid "cat_guilds"
+msgstr "Guilds (purple)"
+
+msgid "cat_wonders"
+msgstr "Wonders"
+
+msgid "cat_progress"
+msgstr "Progress tokens"
+
+msgid "cat_coins"
+msgstr "Coins (1 per 3)"
+
+msgid "cat_military"
+msgstr "Military"
+
+msgid "cat_vp_chips"
+msgstr "VP chips"
+
+msgid "cat_buildings"
+msgstr "Buildings"
+
+msgid "cat_large_bonus"
+msgstr "Large building bonus"
+
+msgid "tool_dice"
+msgstr "Dice"
+
+msgid "tool_dice_hint"
+msgstr "2d6, 1d6, 3d6, d20"
+
+msgid "tool_random"
+msgstr "Random"
+
+msgid "tool_random_hint"
+msgstr "First player, player order"
+
+msgid "roll"
+msgstr "Roll"
+
+msgid "roll_hint"
+msgstr "Tap or shake your wrist"
+
+msgid "robber"
+msgstr "robber!"
+
+msgid "match_players"
+msgstr "Players of the match"
+
+msgid "players_count"
+msgstr "players"
+
+msgid "first_player"
+msgstr "Who starts"
+
+msgid "random_order"
+msgstr "Order"

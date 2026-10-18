@@ -267,3 +267,135 @@ msgstr "Quattro tre rossi"
 
 msgid "preset_once"
 msgstr "Già segnata in questa mano"
+
+msgid "game_catan"
+msgstr "Catan"
+
+msgid "game_carcassonne"
+msgstr "Carcassonne"
+
+msgid "game_ticket"
+msgstr "Ticket to Ride"
+
+msgid "game_duel"
+msgstr "7 Wonders Duel"
+
+msgid "game_puerto_rico"
+msgstr "Puerto Rico"
+
+msgid "hint_end_scoring"
+msgstr "Conteggio finale per categorie"
+
+msgid "tally_hint"
+msgstr "tocca un giocatore"
+
+msgid "preset_settlement"
+msgstr "Colonia"
+
+msgid "preset_city"
+msgstr "Città (da colonia)"
+
+msgid "preset_vp_card"
+msgstr "Carta punto vittoria"
+
+msgid "preset_longest_road"
+msgstr "Strada più lunga"
+
+msgid "preset_largest_army"
+msgstr "Esercito più grande"
+
+msgid "preset_monastery"
+msgstr "Monastero"
+
+msgid "preset_route_1"
+msgstr "Tratta da 1"
+
+msgid "preset_route_2"
+msgstr "Tratta da 2"
+
+msgid "preset_route_3"
+msgstr "Tratta da 3"
+
+msgid "preset_route_4"
+msgstr "Tratta da 4"
+
+msgid "preset_route_5"
+msgstr "Tratta da 5"
+
+msgid "preset_route_6"
+msgstr "Tratta da 6"
+
+msgid "preset_tickets_done"
+msgstr "Biglietti completati"
+
+msgid "preset_tickets_failed"
+msgstr "Biglietti falliti"
+
+msgid "preset_longest_route"
+msgstr "Percorso più lungo"
+
+msgid "cat_civilian"
+msgstr "Civili (blu)"
+
+msgid "cat_science"
+msgstr "Scienza (verdi)"
+
+msgid "cat_commercial"
+msgstr "Commercio (gialle)"
+
+msgid "cat_guilds"
+msgstr "Gilde (viola)"
+
+msgid "cat_wonders"
+msgstr "Meraviglie"
+
+msgid "cat_progress"
+msgstr "Gettoni progresso"
+
+msgid "cat_coins"
+msgstr "Monete (1 ogni 3)"
+
+msgid "cat_military"
+msgstr "Militare"
+
+msgid "cat_vp_chips"
+msgstr "Gettoni PV"
+
+msgid "cat_buildings"
+msgstr "Edifici"
+
+msgid "cat_large_bonus"
+msgstr "Bonus grandi edifici"
+
+msgid "tool_dice"
+msgstr "Dadi"
+
+msgid "tool_dice_hint"
+msgstr "2d6, 1d6, 3d6, d20"
+
+msgid "tool_random"
+msgstr "Casuale"
+
+msgid "tool_random_hint"
+msgstr "Chi inizia, ordine dei giocatori"
+
+msgid "roll"
+msgstr "Lancia"
+
+msgid "roll_hint"
+msgstr "Tocca o scuoti il polso"
+
+msgid "robber"
+msgstr "brigante!"
+
+msgid "match_players"
+msgstr "Giocatori della partita"
+
+msgid "players_count"
+msgstr "giocatori"
+
+msgid "first_player"
+msgstr "Chi inizia"
+
+msgid "random_order"
+msgstr "Ordine"

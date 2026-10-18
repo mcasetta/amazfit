@@ -26,7 +26,7 @@ export const PRESET = { x: px(50), w: px(380), h: px(70), radius: px(24) }
 // left), label, value
 export const PRESET_COUNT = { x: px(56), y: px(0), w: px(34), h: px(70), text_size: px(22) }
 
-export const PRESET_LABEL = { x: px(94), y: px(0), w: px(250), h: px(70), text_size: px(26) }
+export const PRESET_LABEL = { x: px(94), y: px(0), w: px(240), h: px(70), text_size: px(23) }
 
 export const PRESET_VALUE = { x: px(330), y: px(0), w: px(78), h: px(70), text_size: px(26) }
 
