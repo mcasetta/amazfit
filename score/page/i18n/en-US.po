@@ -207,3 +207,60 @@ msgstr "Timer paused"
 
 msgid "timer_tap_to_start"
 msgstr "Tap the timer to start"
+
+msgid "category_sport"
+msgstr "Sport"
+
+msgid "category_cards"
+msgstr "Cards"
+
+msgid "category_board"
+msgstr "Board games"
+
+msgid "coming_soon"
+msgstr "Coming soon"
+
+msgid "games"
+msgstr "games"
+
+msgid "game_burraco"
+msgstr "Burraco"
+
+msgid "game_canasta"
+msgstr "Canasta"
+
+msgid "opt_sides"
+msgstr "Teams or players"
+
+msgid "min_opening"
+msgstr "min"
+
+msgid "preset_closing"
+msgstr "Going out"
+
+msgid "preset_clean_burraco"
+msgstr "Clean burraco"
+
+msgid "preset_semiclean_burraco"
+msgstr "Semi-clean burraco"
+
+msgid "preset_dirty_burraco"
+msgstr "Dirty burraco"
+
+msgid "preset_no_pot"
+msgstr "Pot not taken"
+
+msgid "preset_concealed_closing"
+msgstr "Going out concealed"
+
+msgid "preset_natural_canasta"
+msgstr "Natural canasta"
+
+msgid "preset_mixed_canasta"
+msgstr "Mixed canasta"
+
+msgid "preset_red_three"
+msgstr "Red three"
+
+msgid "preset_four_red_threes"
+msgstr "Four red threes"

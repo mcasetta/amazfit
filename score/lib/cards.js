@@ -35,6 +35,41 @@ export const PENALTY_OPTIONS = [
   PLAYERS_OPTION,
 ]
 
+// Burraco and canasta: two sides (pairs, or one against one) or three players,
+// first side to reach the target wins
+const SIDES_OPTION = { ...PLAYERS_OPTION, label: 'opt_sides', values: [2], range: { min: 2, max: 3, step: 1 } }
+
+export const BURRACO_OPTIONS = [{ key: 'target', values: [2005], number: true, input: TARGET_INPUT }, SIDES_OPTION]
+
+export const CANASTA_OPTIONS = [{ key: 'target', values: [5000], number: true, input: TARGET_INPUT }, SIDES_OPTION]
+
+// Quick entries offered when entering a hand, besides the typed +/- points
+// (cards melded / left in hand). label = i18n key.
+export const BURRACO_PRESETS = [
+  { label: 'preset_closing', value: 100 },
+  { label: 'preset_clean_burraco', value: 200 },
+  { label: 'preset_semiclean_burraco', value: 150 },
+  { label: 'preset_dirty_burraco', value: 100 },
+  { label: 'preset_no_pot', value: -100 },
+]
+
+export const CANASTA_PRESETS = [
+  { label: 'preset_closing', value: 100 },
+  { label: 'preset_concealed_closing', value: 200 },
+  { label: 'preset_natural_canasta', value: 500 },
+  { label: 'preset_mixed_canasta', value: 300 },
+  { label: 'preset_red_three', value: 100 },
+  { label: 'preset_four_red_threes', value: 800 },
+]
+
+// Canasta: minimum points of the first meld, depending on the side's total
+export function canastaMinOpening(total) {
+  if (total < 0) return 15
+  if (total < 1500) return 50
+  if (total < 3000) return 90
+  return 120
+}
+
 function mode(options) {
   return options.mode || MODE_PENALTY
 }

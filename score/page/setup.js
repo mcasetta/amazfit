@@ -2,7 +2,7 @@ import { getText } from '@zos/i18n'
 import { createWidget, widget, align, createKeyboard, deleteKeyboard, inputType } from '@zos/ui'
 import { back, push, replace } from '@zos/router'
 import { createModal, MODAL_CONFIRM } from '@zos/interaction'
-import { getGame, defaultOptions, sideCount } from '../lib/games'
+import { getGame, defaultOptions, sideCount, optionTitleKey } from '../lib/games'
 import { loadCurrentMatch, saveCurrentMatch, loadSetup, saveSetup } from '../lib/store'
 import { createCard } from '../lib/ui'
 import { COLOR_TEXT, COLOR_TEXT_ON_ACCENT, COLOR_ACCENT, COLOR_ACCENT_PRESSED } from '../lib/theme'
@@ -104,7 +104,7 @@ Page({
   },
 
   optionTitle(option) {
-    const title = getText(`opt_${option.key}`)
+    const title = getText(optionTitleKey(option))
     return option.playerOf !== undefined ? `${title}: ${this.state.names[option.playerOf]}` : title
   },
 

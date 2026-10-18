@@ -207,3 +207,60 @@ msgstr "Timer in pausa"
 
 msgid "timer_tap_to_start"
 msgstr "Tocca il timer per avviare"
+
+msgid "category_sport"
+msgstr "Sport"
+
+msgid "category_cards"
+msgstr "Carte"
+
+msgid "category_board"
+msgstr "Giochi da tavolo"
+
+msgid "coming_soon"
+msgstr "In arrivo"
+
+msgid "games"
+msgstr "giochi"
+
+msgid "game_burraco"
+msgstr "Burraco"
+
+msgid "game_canasta"
+msgstr "Canasta"
+
+msgid "opt_sides"
+msgstr "Squadre o giocatori"
+
+msgid "min_opening"
+msgstr "min"
+
+msgid "preset_closing"
+msgstr "Chiusura"
+
+msgid "preset_clean_burraco"
+msgstr "Burraco pulito"
+
+msgid "preset_semiclean_burraco"
+msgstr "Burraco semipulito"
+
+msgid "preset_dirty_burraco"
+msgstr "Burraco sporco"
+
+msgid "preset_no_pot"
+msgstr "Pozzetto non preso"
+
+msgid "preset_concealed_closing"
+msgstr "Chiusura in mano"
+
+msgid "preset_natural_canasta"
+msgstr "Canasta pulita"
+
+msgid "preset_mixed_canasta"
+msgstr "Canasta sporca"
+
+msgid "preset_red_three"
+msgstr "Tre rosso"
+
+msgid "preset_four_red_threes"
+msgstr "Quattro tre rossi"

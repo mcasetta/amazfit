@@ -1,7 +1,7 @@
 # Score (Segnapunti)
 
-Segnapunti per **Amazfit Balance 2 XT**. Giochi: **padel**, **calcio**, **Carte a punti**, **Carte a
-eliminazione** (es. Scala 40). Pensata per aggiungere altri giochi (burraco, canasta...) senza toccare home, setup e
+Segnapunti per **Amazfit Balance 2 XT**. Giochi: **Sport** (padel, calcio), **Carte** (a punti, a
+eliminazione es. Scala 40, burraco, canasta); **Giochi da tavolo** in arrivo. Pensata per aggiungere altri giochi (burraco, canasta...) senza toccare home, setup e
 storico.
 
 - appId: `23478` · API level: 4.0 · schermo: round 480x480 · versione 0.1.0
@@ -10,8 +10,9 @@ storico.
 
 ## Cosa fa
 
-- **Home**: *Riprendi* la partita in corso (con il punteggio), un'entry per ogni gioco
-  (*Nuova partita*), *Storico*.
+- **Home**: *Riprendi* la partita in corso (con il punteggio), le **categorie** (Sport, Carte,
+  Giochi da tavolo: "In arrivo" finché vuota), *Storico*. Una categoria apre la lista dei suoi
+  giochi (*Nuova partita*).
 - **Nuova partita** (padel): *Inizia* in alto (ricorda l'ultima configurazione), poi per ogni
   squadra il nome e i due giocatori (**una lettera** ciascuno, default `1`/`2`: il primo gioca a
   destra/drive, il secondo a sinistra), tutti modificabili con la tastiera di sistema; poi le
@@ -86,6 +87,17 @@ storico.
     vibrazione non arriva); in pausa torna normale.
   - **Annulla** toglie l'ultimo gol, **Fine** (con conferma) salva nello storico; il pareggio
     non è "non finita".
+- **Burraco / Canasta** (motore e tabellone delle carte, modalità a punti):
+  - setup: **soglia** (burraco 2005, canasta 5000, tastiera numerica), **Squadre o giocatori**
+    (2 = coppie o uno contro uno, 3 = tre giocatori; −/+ e rotella), nomi (default Noi/Loro/Squadra 3);
+  - vince chi supera per primo la soglia col totale più alto (parità in testa: si continua);
+  - nella pagina della mano, sotto i pulsanti (scorrendo), **voci rapide** da un tocco, oltre ai
+    punti scritti con +/− (carte calate, carte in mano):
+    burraco: Chiusura +100, Burraco pulito +200, semipulito +150, sporco +100, Pozzetto non
+    preso −100; canasta: Chiusura +100, Chiusura in mano +200, Canasta pulita +500, sporca
+    +300, Tre rosso +100, Quattro tre rossi +800;
+  - canasta: accanto a ogni squadra l'**apertura minima** in base al totale (`min 50`:
+    negativo 15, fino a 1495 50, fino a 2995 90, poi 120).
 - **Storico**: ultime 30 partite, `*` accanto al vincitore, dettaglio set e data. *Svuota* con
   conferma.
 
@@ -99,7 +111,8 @@ lib/store.js      LocalStorage: partita in corso, storico, ultimo setup per gioc
 lib/cues.js       vibrazioni per evento
 lib/theme.js      colori (lati del tabellone, accento giallo pallina)
 lib/ui.js         createCard() (copiata da pulse)
-page/index.js     home
+page/index.js     home: riprendi, categorie, storico
+page/category.js  giochi di una categoria
 page/setup.js     nuova partita (generica sulle opzioni del gioco)
 page/padel.js     tabellone padel
 page/football.js  tabellone calcio con timer cambi
@@ -126,9 +139,9 @@ Una partita è `{ gameId, options, names, log, startedAt }`: il punteggio non è
 3. Entry in `GAMES` (`lib/games.js`), pagina in `app.json`, stringhe `game_<id>` e
    `opt_<chiave>_<valore>` nei `.po`.
 
-Burraco e canasta: probabilmente entry con opzioni proprie sul motore carte (coppie, soglia
-2005/5000, eventuale inserimento a parti: base + carte − carte in mano). Vedi
-`private/docs/ANALISI.txt` §7.
+Burraco e canasta sono entry sul motore carte con opzioni proprie (`BURRACO_OPTIONS`,
+`CANASTA_OPTIONS`), voci rapide (`presets`) e nota per riga (`rowNote`). Ogni gioco ha una
+`category` (`CATEGORIES` in `lib/games.js`).
 
 ## Prossimi passi
 
@@ -136,7 +149,7 @@ Burraco e canasta: probabilmente entry con opzioni proprie sul motore carte (cop
 
 - Prova in campo (toccabilità con mani sudate, leggibilità al sole,
   vibrazioni, risveglio sul tabellone).
-- Burraco, canasta (voci separate già possibili con +/−; eventualmente etichette per voce).
+- Giochi da tavolo (categoria pronta, vuota).
 - Cambio ordine di battuta a inizio set (oggi fisso per tutta la partita) e cambio lato dei
   giocatori.
 - Possibili: tasti fisici per segnare senza guardare, tennis/ping pong (stesso schema del padel).

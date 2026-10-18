@@ -78,6 +78,7 @@ Page({
       let title = name
       if (state.winner === i) title = `* ${name}`
       else if (out) title = `${name} (${getText(reenter ? 'reentry_tap' : 'out')})`
+      else if (game.rowNote && !done) title = `${name} · ${game.rowNote(state.totals[i])}`
       createCard({ ...Styles.ROW, y }, { title, value: `${state.totals[i]}` }, reenter ? () => this.confirmReentry(i, state) : null)
       y += Styles.ROW_STEP
     })

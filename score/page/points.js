@@ -3,6 +3,8 @@ import { createWidget, widget, align, prop, createKeyboard, deleteKeyboard, inpu
 import { back } from '@zos/router'
 import { loadCurrentMatch, saveCurrentMatch } from '../lib/store'
 import { handDraft, entriesSum, entriesText } from '../lib/hand'
+import { getGame } from '../lib/games'
+import { createCard } from '../lib/ui'
 import {
   COLOR_TEXT,
   COLOR_TEXT_DIM,
@@ -20,7 +22,9 @@ const MAX_POINTS = 99999
 
 // Entries of one player in the hand being entered: "+" adds and "-"
 // subtracts the number typed on the numeric keyboard, Undo removes the last
-// entry. Every change is saved in the hand draft right away.
+// entry. Games with presets (burraco, canasta) list quick entries below
+// (closing, canastas...), reached by scrolling. Every change is saved in the
+// hand draft right away.
 Page({
   state: {
     match: null,
@@ -65,6 +69,17 @@ Page({
     button(Styles.UNDO_BUTTON, getText('undo'), COLOR_BG_CARD, COLOR_BG_CARD_PRESSED, COLOR_TEXT, () => this.undo())
     button(Styles.OK_BUTTON, getText('ok'), COLOR_ACCENT, COLOR_ACCENT_PRESSED, COLOR_TEXT_ON_ACCENT, () => back())
 
+    const game = getGame(match.gameId)
+    if (game && game.presets) {
+      let y = Styles.PRESETS_Y
+      game.presets.forEach((preset) => {
+        const value = preset.value < 0 ? `${preset.value}` : `+${preset.value}`
+        createCard({ ...Styles.PRESET, y }, { title: getText(preset.label), value }, () => this.add(preset.value))
+        y += Styles.PRESET_STEP
+      })
+      createWidget(widget.TEXT, { ...Styles.BOTTOM_SPACER, y, text: '' })
+    }
+
     this.render()
   },
 
@@ -81,11 +96,15 @@ Page({
         deleteKeyboard()
         const value = Math.abs(parseInt(((result && result.data) || '').trim(), 10))
         if (isNaN(value) || value === 0) return
-        this.entries().push(sign * Math.min(value, MAX_POINTS))
-        this.save()
+        this.add(sign * Math.min(value, MAX_POINTS))
       },
       onCancel: () => deleteKeyboard(),
     })
+  },
+
+  add(value) {
+    this.entries().push(value)
+    this.save()
   },
 
   undo() {

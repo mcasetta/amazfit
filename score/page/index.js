@@ -1,13 +1,18 @@
 import { getText } from '@zos/i18n'
 import { createWidget, widget, align } from '@zos/ui'
 import { push } from '@zos/router'
-import { GAMES, getGame } from '../lib/games'
+import { showToast } from '@zos/interaction'
+import { CATEGORIES, getGame, gamesOf } from '../lib/games'
 import { loadCurrentMatch } from '../lib/store'
 import { createCard } from '../lib/ui'
 import { COLOR_TEXT } from '../lib/theme'
 import * as Styles from 'zosLoader:./index.[pf].layout.js'
 
-// Home: resume the match in progress, start a new one, open the history
+// Subtitles longer than this list the number of games instead of their names
+const MAX_SUBTITLE_LENGTH = 26
+
+// Home: resume the match in progress, the game categories (sport, cards,
+// board games), the history
 Page({
   build() {
     createWidget(widget.TEXT, {
@@ -37,10 +42,12 @@ Page({
       )
     }
 
-    GAMES.forEach((game) => {
-      addCard({ title: getText(`game_${game.id}`), subtitle: getText(game.hint || 'new_match') }, () =>
-        push({ url: 'page/setup', params: JSON.stringify({ game: game.id }) }),
-      )
+    CATEGORIES.forEach((category) => {
+      const games = gamesOf(category)
+      addCard({ title: getText(`category_${category}`), subtitle: categorySubtitle(games) }, () => {
+        if (games.length === 0) showToast({ content: getText('coming_soon') })
+        else push({ url: 'page/category', params: JSON.stringify({ category }) })
+      })
     })
 
     addCard({ title: getText('history') }, () => push({ url: 'page/history' }))
@@ -49,3 +56,10 @@ Page({
     createWidget(widget.TEXT, { ...Styles.BOTTOM_SPACER, y, text: '' })
   },
 })
+
+// "Padel · Football", "4 games" when too long, "Coming soon" when empty
+function categorySubtitle(games) {
+  if (games.length === 0) return getText('coming_soon')
+  const names = games.map((g) => getText(`game_${g.id}`)).join(' · ')
+  return names.length <= MAX_SUBTITLE_LENGTH ? names : `${games.length} ${getText('games')}`
+}

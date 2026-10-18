@@ -35,7 +35,8 @@
             "page/hand",
             "page/number",
             "page/points",
-            "page/football"
+            "page/football",
+            "page/category"
           ]
         }
       },

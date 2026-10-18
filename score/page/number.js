@@ -2,7 +2,7 @@ import { getText } from '@zos/i18n'
 import { createWidget, widget, align, prop } from '@zos/ui'
 import { back } from '@zos/router'
 import { onDigitalCrown, offDigitalCrown, KEY_HOME } from '@zos/interaction'
-import { getGame, defaultOptions } from '../lib/games'
+import { getGame, defaultOptions, optionTitleKey } from '../lib/games'
 import { loadSetup, saveSetup } from '../lib/store'
 import {
   COLOR_TEXT,
@@ -53,7 +53,7 @@ Page({
       color: COLOR_TEXT_DIM,
       align_h: align.CENTER_H,
       align_v: align.CENTER_V,
-      text: getText(`opt_${option.key}`),
+      text: getText(optionTitleKey(option)),
     })
     this.state.valueText = createWidget(widget.TEXT, {
       ...Styles.VALUE,

@@ -15,3 +15,11 @@ export const PLUS_BUTTON = { x: px(260), y: px(232), w: px(150), h: px(84), radi
 export const UNDO_BUTTON = { x: px(90), y: px(334), w: px(145), h: px(58), radius: px(29), text_size: px(24) }
 
 export const OK_BUTTON = { x: px(245), y: px(334), w: px(145), h: px(58), radius: px(29), text_size: px(26) }
+
+// Quick entries (burraco, canasta), below the buttons: the page scrolls
+export const PRESETS_Y = px(420)
+export const PRESET_STEP = px(80)
+
+export const PRESET = { x: px(50), w: px(380), h: px(70), radius: px(24), padding: px(26), text_size: px(26) }
+
+export const BOTTOM_SPACER = { x: px(0), w: px(480), h: px(120) }
