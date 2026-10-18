@@ -1,0 +1,176 @@
+msgid "app_title"
+msgstr "Sensor Lab"
+
+msgid "title_heart"
+msgstr "Battito"
+
+msgid "title_altimeter"
+msgstr "Altimetro"
+
+msgid "title_temperature"
+msgstr "Temperatura"
+
+msgid "title_gps"
+msgstr "GPS"
+
+msgid "title_compass"
+msgstr "Bussola"
+
+msgid "title_spo2"
+msgstr "Ossigeno SpO2"
+
+msgid "title_accel"
+msgstr "Accelerometro"
+
+msgid "title_gyro"
+msgstr "Giroscopio"
+
+msgid "title_activity"
+msgstr "Attività"
+
+msgid "hr_live"
+msgstr "Live"
+
+msgid "hr_last"
+msgstr "Ultimo"
+
+msgid "hr_resting"
+msgstr "A riposo"
+
+msgid "alt_altitude"
+msgstr "Altitudine"
+
+msgid "alt_pressure"
+msgstr "Pressione"
+
+msgid "temp_skin"
+msgstr "Pelle"
+
+msgid "temp_time"
+msgstr "Misurata"
+
+msgid "gps_state"
+msgstr "Stato"
+
+msgid "gps_lat"
+msgstr "Lat"
+
+msgid "gps_lon"
+msgstr "Lon"
+
+msgid "gps_sats"
+msgstr "Satelliti"
+
+msgid "gps_ttff"
+msgstr "Tempo fix"
+
+msgid "gps_fix"
+msgstr "Fix"
+
+msgid "gps_searching"
+msgstr "Ricerca"
+
+msgid "cmp_angle"
+msgstr "Direzione"
+
+msgid "cmp_dir"
+msgstr "Punto card."
+
+msgid "cmp_calibrated"
+msgstr "Calibrata"
+
+msgid "spo2_value"
+msgstr "SpO2"
+
+msgid "spo2_state"
+msgstr "Stato"
+
+msgid "spo2_avg"
+msgstr "Media 24h"
+
+msgid "spo2_measure"
+msgstr "Misura"
+
+msgid "spo2_invalid"
+msgstr "Non valida"
+
+msgid "spo2_measuring"
+msgstr "In corso"
+
+msgid "spo2_ok"
+msgstr "Fatta"
+
+msgid "spo2_failed"
+msgstr "Fallita"
+
+msgid "axis_x"
+msgstr "X"
+
+msgid "axis_y"
+msgstr "Y"
+
+msgid "axis_z"
+msgstr "Z"
+
+msgid "act_steps"
+msgstr "Passi"
+
+msgid "act_calories"
+msgstr "Calorie"
+
+msgid "act_distance"
+msgstr "Distanza"
+
+msgid "act_stress"
+msgstr "Stress"
+
+msgid "act_battery"
+msgstr "Batteria"
+
+msgid "yes"
+msgstr "Sì"
+
+msgid "no"
+msgstr "No"
+
+msgid "wear_0"
+msgstr "Non indossato"
+
+msgid "wear_1"
+msgstr "Indossato"
+
+msgid "wear_2"
+msgstr "Indossato, in moto"
+
+msgid "wear_3"
+msgstr "Polso: incerto"
+
+msgid "st_live"
+msgstr "Live"
+
+msgid "st_measuring"
+msgstr "Misurazione..."
+
+msgid "st_unavailable"
+msgstr "Non disponibile"
+
+msgid "st_temp_hint"
+msgstr "Indossa l'orologio"
+
+msgid "st_gps_sky"
+msgstr "Esci, cielo aperto"
+
+msgid "st_gps_denied"
+msgstr "Posizione negata"
+
+msgid "st_cmp_calibrate"
+msgstr "Muovi il polso a 8"
+
+msgid "st_spo2_hint"
+msgstr "Tocca Misura"
+
+msgid "st_spo2_still"
+msgstr "Tieni il braccio fermo"
+
+msgid "st_spo2_done"
+msgstr "Tocca per rimisurare"

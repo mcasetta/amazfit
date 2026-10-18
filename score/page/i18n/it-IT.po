@@ -1,0 +1,209 @@
+msgid "app_title"
+msgstr "Segnapunti"
+
+msgid "game_padel"
+msgstr "Padel"
+
+msgid "new_match"
+msgstr "Nuova partita"
+
+msgid "resume"
+msgstr "Riprendi"
+
+msgid "history"
+msgstr "Storico"
+
+msgid "side_name_0"
+msgstr "Noi"
+
+msgid "side_name_1"
+msgstr "Loro"
+
+msgid "start"
+msgstr "Inizia"
+
+msgid "opt_points"
+msgstr "Punteggio"
+
+msgid "opt_points_golden"
+msgstr "Punto d'oro"
+
+msgid "opt_points_advantage"
+msgstr "Vantaggi"
+
+msgid "opt_points_star"
+msgstr "Star point"
+
+msgid "opt_bestOf"
+msgstr "Set"
+
+msgid "opt_bestOf_1"
+msgstr "1 set"
+
+msgid "opt_bestOf_3"
+msgstr "Al meglio dei 3"
+
+msgid "opt_bestOf_5"
+msgstr "Al meglio dei 5"
+
+msgid "opt_decider"
+msgstr "Set decisivo"
+
+msgid "opt_decider_set"
+msgstr "Set normale"
+
+msgid "opt_decider_super_tb"
+msgstr "Super tie-break a 10"
+
+msgid "opt_firstServer"
+msgstr "Batte per primo"
+
+msgid "replace_confirm"
+msgstr "C'è una partita in corso. Sostituirla?"
+
+msgid "undo"
+msgstr "Annulla"
+
+msgid "end"
+msgstr "Fine"
+
+msgid "end_confirm"
+msgstr "Terminare la partita?"
+
+msgid "winner"
+msgstr "Vince"
+
+msgid "tiebreak"
+msgstr "Tie-break"
+
+msgid "super_tiebreak"
+msgstr "Super tie-break"
+
+msgid "deciding_golden"
+msgstr "Punto d'oro"
+
+msgid "deciding_star"
+msgstr "Star point"
+
+msgid "change_sides"
+msgstr "Cambio campo"
+
+msgid "no_matches"
+msgstr "Nessuna partita"
+
+msgid "clear_history"
+msgstr "Svuota"
+
+msgid "clear_confirm"
+msgstr "Cancellare tutte le partite?"
+
+msgid "unfinished"
+msgstr "non finita"
+
+msgid "player_0"
+msgstr "destra"
+
+msgid "player_1"
+msgstr "sinistra"
+
+msgid "opt_firstPlayer0"
+msgstr "Batte prima"
+
+msgid "opt_firstPlayer1"
+msgstr "Batte prima"
+
+msgid "team"
+msgstr "Squadra"
+
+msgid "player"
+msgstr "Giocatore"
+
+msgid "player_short"
+msgstr "G"
+
+msgid "opt_players"
+msgstr "Giocatori"
+
+msgid "opt_target"
+msgstr "Soglia"
+
+msgid "opt_reentry"
+msgstr "Rientro"
+
+msgid "opt_reentry_true"
+msgstr "Sì, una volta"
+
+msgid "opt_reentry_false"
+msgstr "No"
+
+msgid "hand"
+msgstr "Mano"
+
+msgid "new_hand"
+msgstr "+ Mano"
+
+msgid "out_at"
+msgstr "fuori a"
+
+msgid "win_at"
+msgstr "vince a"
+
+msgid "out"
+msgstr "fuori"
+
+msgid "reentry_tap"
+msgstr "rientra?"
+
+msgid "reentry_confirm"
+msgstr "rientra con"
+
+msgid "undo_hand_confirm"
+msgstr "Annullare l'ultima mano?"
+
+msgid "hand_hint_penalty"
+msgstr "Penalità di ogni giocatore"
+
+msgid "hand_hint_points"
+msgstr "Punti di ogni giocatore"
+
+msgid "save"
+msgstr "Salva"
+
+msgid "game_cards_points"
+msgstr "Carte a punti"
+
+msgid "game_cards_penalty"
+msgstr "Carte a eliminazione"
+
+msgid "hint_cards_penalty"
+msgstr "Nuova partita · es. Scala 40"
+
+msgid "ok"
+msgstr "OK"
+
+msgid "tap_to_add"
+msgstr "Tocca per segnare"
+
+msgid "no_entries"
+msgstr "Nessuna voce"
+
+msgid "game_football"
+msgstr "Calcio"
+
+msgid "hint_football"
+msgstr "Nuova partita · timer cambi"
+
+msgid "opt_subMinutes"
+msgstr "Timer cambi (minuti)"
+
+msgid "reset"
+msgstr "Reset"
+
+msgid "subs_now"
+msgstr "Cambi!"
+
+msgid "timer_paused"
+msgstr "Timer in pausa"
+
+msgid "timer_tap_to_start"
+msgstr "Tocca il timer per avviare"

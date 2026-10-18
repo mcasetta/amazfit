@@ -1,0 +1,59 @@
+{
+  "configVersion": "v3",
+  "app": {
+    "appId": 23478,
+    "appName": "Score",
+    "appType": "app",
+    "version": {
+      "code": 1,
+      "name": "0.1.0"
+    },
+    "icon": "icon.png",
+    "vender": "mcasetta",
+    "description": "Scoreboard for padel, football and card games"
+  },
+  "permissions": [
+    "device:os.local_storage"
+  ],
+  "runtime": {
+    "apiVersion": {
+      "compatible": "4.0",
+      "target": "4.0",
+      "minVersion": "4.0"
+    }
+  },
+  "targets": {
+    "default": {
+      "module": {
+        "page": {
+          "pages": [
+            "page/index",
+            "page/setup",
+            "page/padel",
+            "page/history",
+            "page/cards",
+            "page/hand",
+            "page/number",
+            "page/points",
+            "page/football"
+          ]
+        }
+      },
+      "platforms": [
+        {
+          "st": "r",
+          "dw": 480
+        }
+      ]
+    }
+  },
+  "i18n": {
+    "en-US": {
+      "appName": "Score"
+    },
+    "it-IT": {
+      "appName": "Segnapunti"
+    }
+  },
+  "defaultLanguage": "en-US"
+}

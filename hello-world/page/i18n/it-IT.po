@@ -1,0 +1,8 @@
+msgid "greeting"
+msgstr "Ciao, Balance 2 XT!"
+
+msgid "tap"
+msgstr "Toccami"
+
+msgid "taps"
+msgstr "Tocchi"

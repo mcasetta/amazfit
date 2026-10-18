@@ -1,0 +1,92 @@
+msgid "app_title"
+msgstr "Waypoint"
+
+msgid "save_here"
+msgstr "Save here"
+
+msgid "no_points"
+msgstr "No saved places"
+
+msgid "new_point"
+msgstr "New place"
+
+msgid "save"
+msgstr "Save"
+
+msgid "saved"
+msgstr "Saved"
+
+msgid "point"
+msgstr "Place"
+
+msgid "satellites"
+msgstr "Satellites"
+
+msgid "gps_fix"
+msgstr "Position found"
+
+msgid "gps_searching"
+msgstr "Searching GPS..."
+
+msgid "gps_sky"
+msgstr "Better outdoors"
+
+msgid "gps_denied"
+msgstr "Location turned off"
+
+msgid "calibrate_compass"
+msgstr "Compass: move wrist in an 8"
+
+msgid "arrived"
+msgstr "You are there"
+
+msgid "rename"
+msgstr "Rename"
+
+msgid "delete"
+msgstr "Delete"
+
+msgid "delete_confirm"
+msgstr "Delete this place?"
+
+msgid "decimal_separator"
+msgstr "."
+
+msgid "dir_0"
+msgstr "N"
+
+msgid "dir_1"
+msgstr "NE"
+
+msgid "dir_2"
+msgstr "E"
+
+msgid "dir_3"
+msgstr "SE"
+
+msgid "dir_4"
+msgstr "S"
+
+msgid "dir_5"
+msgstr "SW"
+
+msgid "dir_6"
+msgstr "W"
+
+msgid "dir_7"
+msgstr "NW"
+
+msgid "maps"
+msgstr "Maps"
+
+msgid "scan_with_phone"
+msgstr "Scan with your phone"
+
+msgid "import"
+msgstr "Import"
+
+msgid "invalid_coordinates"
+msgstr "Invalid coordinates"
+
+msgid "now_longitude"
+msgstr "Now the longitude"

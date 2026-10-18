@@ -1,0 +1,57 @@
+{
+  "configVersion": "v3",
+  "app": {
+    "appId": 23475,
+    "appName": "Hello World",
+    "appType": "app",
+    "version": {
+      "code": 1,
+      "name": "1.0.0"
+    },
+    "icon": "icon.png",
+    "vender": "mcasetta",
+    "description": "First Zepp OS mini program - UI, events and i18n smoke test"
+  },
+  "permissions": [
+    "data:os.device.info"
+  ],
+  "runtime": {
+    "apiVersion": {
+      "compatible": "4.0",
+      "target": "4.0",
+      "minVersion": "4.0"
+    }
+  },
+  "targets": {
+    "default": {
+      "module": {
+        "page": {
+          "pages": [
+            "page/index"
+          ]
+        },
+        "app-side": {
+          "path": "app-side/index"
+        },
+        "setting": {
+          "path": "setting/index"
+        }
+      },
+      "platforms": [
+        {
+          "st": "r",
+          "dw": 480
+        }
+      ]
+    }
+  },
+  "i18n": {
+    "en-US": {
+      "appName": "Hello World"
+    },
+    "it-IT": {
+      "appName": "Hello World"
+    }
+  },
+  "defaultLanguage": "en-US"
+}

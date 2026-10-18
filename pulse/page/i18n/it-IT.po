@@ -1,0 +1,110 @@
+msgid "app_title"
+msgstr "Pulse"
+
+msgid "preset_stretching"
+msgstr "Stretching"
+
+msgid "preset_plank"
+msgstr "Plank"
+
+msgid "preset_repeats"
+msgstr "Ripetute"
+
+msgid "timer"
+msgstr "Timer"
+
+msgid "new_timer"
+msgstr "+ Nuovo"
+
+msgid "sets_short"
+msgstr "serie"
+
+msgid "total"
+msgstr "durata totale"
+
+msgid "start"
+msgstr "Avvia"
+
+msgid "delete"
+msgstr "Elimina"
+
+msgid "rename"
+msgstr "Rinomina"
+
+msgid "delete_confirm"
+msgstr "Eliminare questo timer?"
+
+msgid "ok"
+msgstr "OK"
+
+msgid "field_prepare"
+msgstr "Preparazione"
+
+msgid "field_work"
+msgstr "Lavoro"
+
+msgid "field_rest"
+msgstr "Riposo"
+
+msgid "field_reps"
+msgstr "Ripetizioni"
+
+msgid "field_sets"
+msgstr "Serie"
+
+msgid "field_setRest"
+msgstr "Riposo serie"
+
+msgid "field_extra"
+msgstr "Tempo extra"
+
+msgid "phase_prepare"
+msgstr "Preparati"
+
+msgid "phase_work"
+msgstr "Lavoro"
+
+msgid "phase_rest"
+msgstr "Riposo"
+
+msgid "phase_setRest"
+msgstr "Riposo serie"
+
+msgid "paused"
+msgstr "In pausa"
+
+msgid "get_ready"
+msgstr "Si parte"
+
+msgid "next"
+msgstr "Poi:"
+
+msgid "rep"
+msgstr "Rip"
+
+msgid "set"
+msgstr "Serie"
+
+msgid "remaining"
+msgstr "Restano"
+
+msgid "pause"
+msgstr "Pausa"
+
+msgid "resume"
+msgstr "Riprendi"
+
+msgid "stop"
+msgstr "Stop"
+
+msgid "stop_confirm"
+msgstr "Terminare l'allenamento?"
+
+msgid "done"
+msgstr "Fatto!"
+
+msgid "session_done"
+msgstr "Allenamento completato"
+
+msgid "finish"
+msgstr "Fine"

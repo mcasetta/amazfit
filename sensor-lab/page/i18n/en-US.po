@@ -1,0 +1,176 @@
+msgid "app_title"
+msgstr "Sensor Lab"
+
+msgid "title_heart"
+msgstr "Heart rate"
+
+msgid "title_altimeter"
+msgstr "Altimeter"
+
+msgid "title_temperature"
+msgstr "Temperature"
+
+msgid "title_gps"
+msgstr "GPS"
+
+msgid "title_compass"
+msgstr "Compass"
+
+msgid "title_spo2"
+msgstr "Blood oxygen"
+
+msgid "title_accel"
+msgstr "Accelerometer"
+
+msgid "title_gyro"
+msgstr "Gyroscope"
+
+msgid "title_activity"
+msgstr "Activity"
+
+msgid "hr_live"
+msgstr "Live"
+
+msgid "hr_last"
+msgstr "Last"
+
+msgid "hr_resting"
+msgstr "Resting"
+
+msgid "alt_altitude"
+msgstr "Altitude"
+
+msgid "alt_pressure"
+msgstr "Pressure"
+
+msgid "temp_skin"
+msgstr "Skin"
+
+msgid "temp_time"
+msgstr "Measured"
+
+msgid "gps_state"
+msgstr "State"
+
+msgid "gps_lat"
+msgstr "Lat"
+
+msgid "gps_lon"
+msgstr "Lon"
+
+msgid "gps_sats"
+msgstr "Sats"
+
+msgid "gps_ttff"
+msgstr "Fix time"
+
+msgid "gps_fix"
+msgstr "Fix"
+
+msgid "gps_searching"
+msgstr "Searching"
+
+msgid "cmp_angle"
+msgstr "Heading"
+
+msgid "cmp_dir"
+msgstr "Cardinal"
+
+msgid "cmp_calibrated"
+msgstr "Calibrated"
+
+msgid "spo2_value"
+msgstr "SpO2"
+
+msgid "spo2_state"
+msgstr "State"
+
+msgid "spo2_avg"
+msgstr "24h avg"
+
+msgid "spo2_measure"
+msgstr "Measure"
+
+msgid "spo2_invalid"
+msgstr "Invalid"
+
+msgid "spo2_measuring"
+msgstr "Measuring"
+
+msgid "spo2_ok"
+msgstr "Done"
+
+msgid "spo2_failed"
+msgstr "Failed"
+
+msgid "axis_x"
+msgstr "X"
+
+msgid "axis_y"
+msgstr "Y"
+
+msgid "axis_z"
+msgstr "Z"
+
+msgid "act_steps"
+msgstr "Steps"
+
+msgid "act_calories"
+msgstr "Calories"
+
+msgid "act_distance"
+msgstr "Distance"
+
+msgid "act_stress"
+msgstr "Stress"
+
+msgid "act_battery"
+msgstr "Battery"
+
+msgid "yes"
+msgstr "Yes"
+
+msgid "no"
+msgstr "No"
+
+msgid "wear_0"
+msgstr "Not worn"
+
+msgid "wear_1"
+msgstr "Worn"
+
+msgid "wear_2"
+msgstr "Worn, moving"
+
+msgid "wear_3"
+msgstr "Wear unknown"
+
+msgid "st_live"
+msgstr "Live"
+
+msgid "st_measuring"
+msgstr "Measuring..."
+
+msgid "st_unavailable"
+msgstr "Not available"
+
+msgid "st_temp_hint"
+msgstr "Wear the watch"
+
+msgid "st_gps_sky"
+msgstr "Go outside, open sky"
+
+msgid "st_gps_denied"
+msgstr "Location not allowed"
+
+msgid "st_cmp_calibrate"
+msgstr "Move wrist in an 8"
+
+msgid "st_spo2_hint"
+msgstr "Tap Measure"
+
+msgid "st_spo2_still"
+msgstr "Keep your arm still"
+
+msgid "st_spo2_done"
+msgstr "Tap to measure again"

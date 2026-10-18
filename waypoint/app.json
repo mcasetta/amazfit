@@ -1,0 +1,56 @@
+{
+  "configVersion": "v3",
+  "app": {
+    "appId": 23479,
+    "appName": "Waypoint",
+    "appType": "app",
+    "version": {
+      "code": 1,
+      "name": "0.1.0"
+    },
+    "icon": "icon.png",
+    "vender": "mcasetta",
+    "description": "Save places (car, trailhead, beach umbrella) and get back to them"
+  },
+  "permissions": [
+    "device:os.local_storage",
+    "device:os.geolocation",
+    "device:os.compass"
+  ],
+  "runtime": {
+    "apiVersion": {
+      "compatible": "4.0",
+      "target": "4.0",
+      "minVersion": "4.0"
+    }
+  },
+  "targets": {
+    "default": {
+      "module": {
+        "page": {
+          "pages": [
+            "page/index",
+            "page/save",
+            "page/point",
+            "page/qr"
+          ]
+        }
+      },
+      "platforms": [
+        {
+          "st": "r",
+          "dw": 480
+        }
+      ]
+    }
+  },
+  "i18n": {
+    "en-US": {
+      "appName": "Waypoint"
+    },
+    "it-IT": {
+      "appName": "Segnaposto"
+    }
+  },
+  "defaultLanguage": "en-US"
+}

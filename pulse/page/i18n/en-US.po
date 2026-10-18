@@ -1,0 +1,110 @@
+msgid "app_title"
+msgstr "Pulse"
+
+msgid "preset_stretching"
+msgstr "Stretching"
+
+msgid "preset_plank"
+msgstr "Plank"
+
+msgid "preset_repeats"
+msgstr "Run repeats"
+
+msgid "timer"
+msgstr "Timer"
+
+msgid "new_timer"
+msgstr "+ New"
+
+msgid "sets_short"
+msgstr "sets"
+
+msgid "total"
+msgstr "total time"
+
+msgid "start"
+msgstr "Start"
+
+msgid "delete"
+msgstr "Delete"
+
+msgid "rename"
+msgstr "Rename"
+
+msgid "delete_confirm"
+msgstr "Delete this timer?"
+
+msgid "ok"
+msgstr "OK"
+
+msgid "field_prepare"
+msgstr "Get ready"
+
+msgid "field_work"
+msgstr "Work"
+
+msgid "field_rest"
+msgstr "Rest"
+
+msgid "field_reps"
+msgstr "Reps"
+
+msgid "field_sets"
+msgstr "Sets"
+
+msgid "field_setRest"
+msgstr "Set rest"
+
+msgid "field_extra"
+msgstr "Extra time"
+
+msgid "phase_prepare"
+msgstr "Get ready"
+
+msgid "phase_work"
+msgstr "Work"
+
+msgid "phase_rest"
+msgstr "Rest"
+
+msgid "phase_setRest"
+msgstr "Set rest"
+
+msgid "paused"
+msgstr "Paused"
+
+msgid "get_ready"
+msgstr "Starting soon"
+
+msgid "next"
+msgstr "Next:"
+
+msgid "rep"
+msgstr "Rep"
+
+msgid "set"
+msgstr "Set"
+
+msgid "remaining"
+msgstr "Left"
+
+msgid "pause"
+msgstr "Pause"
+
+msgid "resume"
+msgstr "Resume"
+
+msgid "stop"
+msgstr "Stop"
+
+msgid "stop_confirm"
+msgstr "End the workout?"
+
+msgid "done"
+msgstr "Done!"
+
+msgid "session_done"
+msgstr "Workout complete"
+
+msgid "finish"
+msgstr "Finish"

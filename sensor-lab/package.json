@@ -1,0 +1,14 @@
+{
+  "name": "sensor-lab",
+  "version": "1.0.0",
+  "description": "Live sensor readings for Amazfit Balance 2 XT",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@zeppos/device-types": "^3.0.0"
+  }
+}

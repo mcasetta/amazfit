@@ -1,0 +1,209 @@
+msgid "app_title"
+msgstr "Score"
+
+msgid "game_padel"
+msgstr "Padel"
+
+msgid "new_match"
+msgstr "New match"
+
+msgid "resume"
+msgstr "Resume"
+
+msgid "history"
+msgstr "History"
+
+msgid "side_name_0"
+msgstr "Us"
+
+msgid "side_name_1"
+msgstr "Them"
+
+msgid "start"
+msgstr "Start"
+
+msgid "opt_points"
+msgstr "Scoring"
+
+msgid "opt_points_golden"
+msgstr "Golden point"
+
+msgid "opt_points_advantage"
+msgstr "Advantages"
+
+msgid "opt_points_star"
+msgstr "Star point"
+
+msgid "opt_bestOf"
+msgstr "Sets"
+
+msgid "opt_bestOf_1"
+msgstr "1 set"
+
+msgid "opt_bestOf_3"
+msgstr "Best of 3"
+
+msgid "opt_bestOf_5"
+msgstr "Best of 5"
+
+msgid "opt_decider"
+msgstr "Deciding set"
+
+msgid "opt_decider_set"
+msgstr "Full set"
+
+msgid "opt_decider_super_tb"
+msgstr "Super tie-break to 10"
+
+msgid "opt_firstServer"
+msgstr "Serves first"
+
+msgid "replace_confirm"
+msgstr "A match is in progress. Replace it?"
+
+msgid "undo"
+msgstr "Undo"
+
+msgid "end"
+msgstr "End"
+
+msgid "end_confirm"
+msgstr "End the match?"
+
+msgid "winner"
+msgstr "Winner"
+
+msgid "tiebreak"
+msgstr "Tie-break"
+
+msgid "super_tiebreak"
+msgstr "Super tie-break"
+
+msgid "deciding_golden"
+msgstr "Golden point"
+
+msgid "deciding_star"
+msgstr "Star point"
+
+msgid "change_sides"
+msgstr "Change sides"
+
+msgid "no_matches"
+msgstr "No matches yet"
+
+msgid "clear_history"
+msgstr "Clear"
+
+msgid "clear_confirm"
+msgstr "Delete all matches?"
+
+msgid "unfinished"
+msgstr "unfinished"
+
+msgid "player_0"
+msgstr "right"
+
+msgid "player_1"
+msgstr "left"
+
+msgid "opt_firstPlayer0"
+msgstr "First server"
+
+msgid "opt_firstPlayer1"
+msgstr "First server"
+
+msgid "team"
+msgstr "Team"
+
+msgid "player"
+msgstr "Player"
+
+msgid "player_short"
+msgstr "P"
+
+msgid "opt_players"
+msgstr "Players"
+
+msgid "opt_target"
+msgstr "Target"
+
+msgid "opt_reentry"
+msgstr "Re-entry"
+
+msgid "opt_reentry_true"
+msgstr "Yes, once"
+
+msgid "opt_reentry_false"
+msgstr "No"
+
+msgid "hand"
+msgstr "Hand"
+
+msgid "new_hand"
+msgstr "+ Hand"
+
+msgid "out_at"
+msgstr "out at"
+
+msgid "win_at"
+msgstr "wins at"
+
+msgid "out"
+msgstr "out"
+
+msgid "reentry_tap"
+msgstr "re-enter?"
+
+msgid "reentry_confirm"
+msgstr "re-enter with"
+
+msgid "undo_hand_confirm"
+msgstr "Undo the last hand?"
+
+msgid "hand_hint_penalty"
+msgstr "Penalty points per player"
+
+msgid "hand_hint_points"
+msgstr "Points per player"
+
+msgid "save"
+msgstr "Save"
+
+msgid "game_cards_points"
+msgstr "Cards: points"
+
+msgid "game_cards_penalty"
+msgstr "Cards: elimination"
+
+msgid "hint_cards_penalty"
+msgstr "New match · e.g. Scala 40"
+
+msgid "ok"
+msgstr "OK"
+
+msgid "tap_to_add"
+msgstr "Tap to add points"
+
+msgid "no_entries"
+msgstr "No entries"
+
+msgid "game_football"
+msgstr "Football"
+
+msgid "hint_football"
+msgstr "New match · subs timer"
+
+msgid "opt_subMinutes"
+msgstr "Subs timer (minutes)"
+
+msgid "reset"
+msgstr "Reset"
+
+msgid "subs_now"
+msgstr "Substitutions!"
+
+msgid "timer_paused"
+msgstr "Timer paused"
+
+msgid "timer_tap_to_start"
+msgstr "Tap the timer to start"

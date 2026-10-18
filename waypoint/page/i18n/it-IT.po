@@ -1,0 +1,92 @@
+msgid "app_title"
+msgstr "Segnaposto"
+
+msgid "save_here"
+msgstr "Salva qui"
+
+msgid "no_points"
+msgstr "Nessun punto salvato"
+
+msgid "new_point"
+msgstr "Nuovo punto"
+
+msgid "save"
+msgstr "Salva"
+
+msgid "saved"
+msgstr "Salvato"
+
+msgid "point"
+msgstr "Punto"
+
+msgid "satellites"
+msgstr "Satelliti"
+
+msgid "gps_fix"
+msgstr "Posizione trovata"
+
+msgid "gps_searching"
+msgstr "Ricerca GPS..."
+
+msgid "gps_sky"
+msgstr "Meglio all'aperto"
+
+msgid "gps_denied"
+msgstr "Posizione disattivata"
+
+msgid "calibrate_compass"
+msgstr "Bussola: muovi il polso a 8"
+
+msgid "arrived"
+msgstr "Sei arrivato"
+
+msgid "rename"
+msgstr "Rinomina"
+
+msgid "delete"
+msgstr "Elimina"
+
+msgid "delete_confirm"
+msgstr "Eliminare il punto?"
+
+msgid "decimal_separator"
+msgstr ","
+
+msgid "dir_0"
+msgstr "N"
+
+msgid "dir_1"
+msgstr "NE"
+
+msgid "dir_2"
+msgstr "E"
+
+msgid "dir_3"
+msgstr "SE"
+
+msgid "dir_4"
+msgstr "S"
+
+msgid "dir_5"
+msgstr "SO"
+
+msgid "dir_6"
+msgstr "O"
+
+msgid "dir_7"
+msgstr "NO"
+
+msgid "maps"
+msgstr "Maps"
+
+msgid "scan_with_phone"
+msgstr "Inquadra col telefono"
+
+msgid "import"
+msgstr "Importa"
+
+msgid "invalid_coordinates"
+msgstr "Coordinate non valide"
+
+msgid "now_longitude"
+msgstr "Ora la longitudine"
