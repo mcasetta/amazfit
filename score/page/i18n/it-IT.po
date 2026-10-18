@@ -399,3 +399,6 @@ msgstr "Chi inizia"
 
 msgid "random_order"
 msgstr "Ordine"
+
+msgid "category_tools"
+msgstr "Strumenti"

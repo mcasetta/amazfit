@@ -399,3 +399,6 @@ msgstr "Who starts"
 
 msgid "random_order"
 msgstr "Order"
+
+msgid "category_tools"
+msgstr "Tools"

@@ -30,8 +30,8 @@ import * as board from './board'
 //   score           (match) -> { title, line, detail, winner, finished? }: title
 //                   for the history, line for the home, detail = score text,
 //                   finished = over even without a winner (a draw)
-// Home menu, in this order; a category without games shows "coming soon"
-export const CATEGORIES = ['sport', 'cards', 'board']
+// Home menu, in this order; a category with no games nor tools shows "coming soon"
+export const CATEGORIES = ['sport', 'cards', 'board', 'tools']
 
 const playerName = (i) => `${getText('player_short')}${i + 1}`
 
@@ -213,11 +213,11 @@ export function optionTitleKey(option) {
   return option.label || `opt_${option.key}`
 }
 
-// Tools shown in a category after its games (no match, no history):
+// Tools (no match, no history), listed in their category after its games:
 //   { id, category, page }  i18n `tool_<id>` and `tool_<id>_hint`
 export const TOOLS = [
-  { id: 'dice', category: 'board', page: 'page/dice' },
-  { id: 'random', category: 'board', page: 'page/random' },
+  { id: 'dice', category: 'tools', page: 'page/dice' },
+  { id: 'random', category: 'tools', page: 'page/random' },
 ]
 
 export function toolsOf(category) {

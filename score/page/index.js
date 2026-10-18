@@ -2,7 +2,7 @@ import { getText } from '@zos/i18n'
 import { createWidget, widget, align } from '@zos/ui'
 import { push } from '@zos/router'
 import { showToast } from '@zos/interaction'
-import { CATEGORIES, getGame, gamesOf } from '../lib/games'
+import { CATEGORIES, getGame, gamesOf, toolsOf } from '../lib/games'
 import { loadCurrentMatch } from '../lib/store'
 import { createCard } from '../lib/ui'
 import { COLOR_TEXT } from '../lib/theme'
@@ -43,9 +43,9 @@ Page({
     }
 
     CATEGORIES.forEach((category) => {
-      const games = gamesOf(category)
-      addCard({ title: getText(`category_${category}`), subtitle: categorySubtitle(games) }, () => {
-        if (games.length === 0) showToast({ content: getText('coming_soon') })
+      const items = [...gamesOf(category).map((g) => `game_${g.id}`), ...toolsOf(category).map((t) => `tool_${t.id}`)]
+      addCard({ title: getText(`category_${category}`), subtitle: categorySubtitle(items) }, () => {
+        if (items.length === 0) showToast({ content: getText('coming_soon') })
         else push({ url: 'page/category', params: JSON.stringify({ category }) })
       })
     })
@@ -57,9 +57,10 @@ Page({
   },
 })
 
-// "Padel · Football", "4 games" when too long, "Coming soon" when empty
-function categorySubtitle(games) {
-  if (games.length === 0) return getText('coming_soon')
-  const names = games.map((g) => getText(`game_${g.id}`)).join(' · ')
-  return names.length <= MAX_SUBTITLE_LENGTH ? names : `${games.length} ${getText('games')}`
+// "Padel · Football", "4 games" when too long, "Coming soon" when empty;
+// items = i18n keys of the games and tools of the category
+function categorySubtitle(items) {
+  if (items.length === 0) return getText('coming_soon')
+  const names = items.map((key) => getText(key)).join(' · ')
+  return names.length <= MAX_SUBTITLE_LENGTH ? names : `${items.length} ${getText('games')}`
 }

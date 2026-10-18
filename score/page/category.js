@@ -7,7 +7,7 @@ import { COLOR_TEXT } from '../lib/theme'
 import * as Styles from 'zosLoader:./index.[pf].layout.js'
 
 // Games of one category (same layout as the home), a tap opens the new match
-// setup; then the tools of the category (dice, random player...)
+// setup; then the tools of the category (dice, random player)
 Page({
   state: {
     category: null,
@@ -24,7 +24,8 @@ Page({
   build() {
     const { category } = this.state
     const games = gamesOf(category)
-    if (games.length === 0) {
+    const tools = toolsOf(category)
+    if (games.length + tools.length === 0) {
       back()
       return
     }
@@ -46,7 +47,7 @@ Page({
         push({ url: 'page/setup', params: JSON.stringify({ game: game.id }) }),
       )
     })
-    toolsOf(category).forEach((tool) => {
+    tools.forEach((tool) => {
       addCard({ title: getText(`tool_${tool.id}`), subtitle: getText(`tool_${tool.id}_hint`) }, () => push({ url: tool.page }))
     })
     createWidget(widget.TEXT, { ...Styles.BOTTOM_SPACER, y, text: '' })

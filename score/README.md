@@ -1,8 +1,7 @@
 # Score (Segnapunti)
 
 Segnapunti per **Amazfit Balance 2 XT**. Giochi: **Sport** (padel, calcio), **Carte** (a punti, a
-eliminazione es. Scala 40, burraco, canasta); **Giochi da tavolo** (Catan, Carcassonne, Ticket to Ride, 7 Wonders Duel, Puerto Rico) più
-strumenti **Dadi** e **Casuale**. Pensata per aggiungere altri giochi (burraco, canasta...) senza toccare home, setup e
+eliminazione es. Scala 40, burraco, canasta); **Giochi da tavolo** (Catan, Carcassonne, Ticket to Ride, 7 Wonders Duel, Puerto Rico); **Strumenti**: **Dadi** e **Casuale**. Pensata per aggiungere altri giochi (burraco, canasta...) senza toccare home, setup e
 storico.
 
 - Permessi: `device:os.local_storage`, `device:os.accelerometer` (dadi scuotendo il polso)
@@ -13,7 +12,7 @@ storico.
 ## Cosa fa
 
 - **Home**: *Riprendi* la partita in corso (con il punteggio), le **categorie** (Sport, Carte,
-  Giochi da tavolo), *Storico*. Una categoria apre la lista dei suoi
+  Giochi da tavolo, Strumenti), *Storico*. Una categoria apre la lista dei suoi
   giochi (*Nuova partita*).
 - **Nuova partita** (padel): *Inizia* in alto (ricorda l'ultima configurazione), poi per ogni
   squadra il nome e i due giocatori (**una lettera** ciascuno, default `1`/`2`: il primo gioca a
@@ -121,6 +120,7 @@ storico.
     ogni 3), militare. Parità: vince chi ha più punti civili.
   - **Puerto Rico** (3–5): categorie gettoni PV, edifici, bonus grandi edifici. (Spareggio
     dobloni + merci non gestito: in parità nessun vincitore.)
+- **Strumenti** (voce di primo livello):
 - **Dadi**: 2d6 (default), 1d6, 3d6, d20 (pulsante in alto, ricordato); lancio toccando i dadi,
   **Lancia** o **scuotendo il polso** (accelerometro); breve animazione, vibrazione, somma,
   ultimi 6 lanci; con 2d6 il 7 mostra "brigante!".
