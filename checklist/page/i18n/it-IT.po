@@ -52,3 +52,12 @@ msgstr "Eliminare tutte le voci? La lista resta. Anche dal telefono."
 msgid "none_checked"
 msgstr "Nessuna voce spuntata"
 
+msgid "screen_on"
+msgstr "Schermo acceso"
+
+msgid "screen_on_yes"
+msgstr "Sempre, nelle liste"
+
+msgid "screen_on_no"
+msgstr "No, si spegne"
+

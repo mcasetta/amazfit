@@ -2,7 +2,7 @@ import { getText } from '@zos/i18n'
 import { createWidget, deleteWidget, widget, align, text_style } from '@zos/ui'
 import { push } from '@zos/router'
 import { BasePage } from '@zeppos/zml/base-page'
-import { loadLists, saveLists, lastSync, checkedCount } from '../lib/store'
+import { loadLists, saveLists, lastSync, checkedCount, keepScreenOn, setKeepScreenOn } from '../lib/store'
 import { syncWithPhone } from '../lib/sync'
 import { createCard } from '../lib/ui'
 import { COLOR_TEXT, COLOR_TEXT_DIM } from '../lib/theme'
@@ -89,12 +89,28 @@ Page(
         y += Styles.LIST_STEP
       })
 
+      // Screen always on while a list is open (battery), decided here each time
+      const screenCard = createCard(
+        { ...Styles.CARD, y },
+        { title: getText('screen_on'), subtitle: screenOnText() },
+        () => {
+          setKeepScreenOn(!keepScreenOn())
+          screenCard.setSecond(screenOnText())
+        },
+      )
+      screenCard.widgets.forEach(add)
+      y += Styles.LIST_STEP
+
       // Lets the last card scroll above the narrow bottom of the round screen
       add(createWidget(widget.TEXT, { ...Styles.BOTTOM_SPACER, y, text: '' }))
       this.state.widgets = widgets
     },
   }),
 )
+
+function screenOnText() {
+  return getText(keepScreenOn() ? 'screen_on_yes' : 'screen_on_no')
+}
 
 // "Phone not reachable · saved 10:32" (or just the first part if never synced)
 function offlineStatus() {

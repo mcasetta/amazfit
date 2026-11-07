@@ -4,10 +4,10 @@ Liste (spesa, ferramenta, valigia...) **incollate dal telefono** e **spuntate su
 Amazfit Balance 2 XT. Prima app del workspace che parla con il telefono.
 
 - Permessi: `device:os.local_storage`
-- appId: `23480` · API level: 4.0 · schermo: round 480x480 · versione 0.1.1
+- appId: `23480` · API level: 4.0 · schermo: round 480x480 · versione 0.1.2
 - Dipendenza: [`@zeppos/zml`](https://www.npmjs.com/package/@zeppos/zml) 0.0.43 (messaggi
   orologio ↔ telefono) → `npm install` prima di `zeus dev/build/preview`
-- Stato: ✅ funziona sull'orologio (v0.1.1, 2026-11-07) · 📱 da provare col telefono lontano
+- Stato: ✅ funziona sull'orologio (v0.1.2, 2026-11-07) · 📱 da provare col telefono lontano
 - Icona: tre righe di lista, due spuntate (`private/scripts/make-checklist-icon.ps1`)
 
 ## Come si usa
@@ -55,11 +55,17 @@ Amazfit Balance 2 XT. Prima app del workspace che parla con il telefono.
 - **Orologio — home** (`page/index.js`): mostra subito la copia salvata, poi chiede le liste
   al telefono (timeout 10 s) e ridisegna. Riga di stato: *Aggiornato* / *Telefono non
   raggiunto · 10:32* (ora dell'ultimo aggiornamento). Ogni lista: titolo e `2/5 fatti`.
+  In fondo **Schermo acceso**: *No, si spegne* (default) / *Sempre, nelle liste*.
 - **Orologio — lista** (`page/list.js`): voci a capo su più righe, tocco = spunta (cerchio
   pieno, testo grigio, vibrazione leggera); le voci non si spostano. Ultima voce spuntata →
   *Tutto fatto!* con doppia vibrazione. In fondo quattro pulsanti: **Spunta tutte**,
   **Togli spunte** (conferma), **Elimina spuntate** (conferma con il numero), **Svuota lista**
   (conferma, la lista resta).
+- **Schermo**: con una lista aperta, se lo schermo si spegne e il sistema chiude l'app,
+  alzando il polso l'app si **riapre sulla stessa lista** (`setWakeUpRelaunch`; l'id della
+  lista è salvato perché la pagina riaperta potrebbe non avere i parametri). Con
+  *Schermo acceso: Sempre* lo schermo non si spegne mentre una lista è aperta
+  (`setPageBrightTime` 1 h + `pauseDropWristScreenOff`), consuma batteria.
 - **Modifiche fatte sull'orologio** (*Elimina spuntate*, *Svuota lista*, `lib/ops.js`): il
   contenuto delle liste è del telefono, quindi l'orologio le applica subito, le mette in coda
   (`pending`) e la home le manda al telefono a ogni sincronizzazione (`lists.sync`: coda in

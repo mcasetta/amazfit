@@ -2,6 +2,7 @@ import { getText } from '@zos/i18n'
 import { createWidget, widget, align, prop, event, text_style } from '@zos/ui'
 import { replace } from '@zos/router'
 import { createModal, MODAL_CONFIRM, showToast } from '@zos/interaction'
+import { setWakeUpRelaunch, setPageBrightTime, pauseDropWristScreenOff, resetDropWristScreenOff } from '@zos/display'
 import {
   getList,
   isChecked,
@@ -11,6 +12,9 @@ import {
   checkAll,
   removeChecked,
   emptyList,
+  keepScreenOn,
+  lastOpenList,
+  setLastOpenList,
 } from '../lib/store'
 import { cueTap, cueDone } from '../lib/cues'
 import {
@@ -28,6 +32,8 @@ import {
 } from '../lib/theme'
 import * as Styles from 'zosLoader:./list.[pf].layout.js'
 
+const SCREEN_ON_MS = 60 * 60 * 1000
+
 // One list: tap an item to check it off (and again to bring it back).
 // Items keep their place so nothing moves under the finger. At the bottom:
 // check all, uncheck all, delete checked items, empty the list (the last two
@@ -36,15 +42,24 @@ Page({
   state: {
     list: null,
     counter: null,
+    screenKeptOn: false,
   },
 
   onInit(params) {
-    const { id } = JSON.parse(params || '{}')
+    let id = null
+    try {
+      id = JSON.parse(params || '{}').id
+    } catch (e) {
+      // reopened by the system: no params
+    }
+    id = id || lastOpenList()
+    setLastOpenList(id)
     this.state.list = getList(id)
   },
 
   build() {
     const { list } = this.state
+    this.setupScreen()
 
     createWidget(widget.TEXT, {
       ...Styles.TITLE,
@@ -103,6 +118,26 @@ Page({
 
     // Lets the last item scroll above the narrow bottom of the round screen
     createWidget(widget.TEXT, { ...Styles.BOTTOM_SPACER, y, text: '' })
+  },
+
+  onDestroy() {
+    // setPageBrightTime resets itself when the page closes
+    if (this.state.screenKeptOn) resetDropWristScreenOff()
+  },
+
+  // Raising the wrist after the screen went off (and the system closed the
+  // app) reopens this list; optionally the screen does not go off at all
+  setupScreen() {
+    try {
+      setWakeUpRelaunch({ relaunch: true })
+      if (keepScreenOn()) {
+        setPageBrightTime({ brightTime: SCREEN_ON_MS })
+        pauseDropWristScreenOff({ duration: 0 })
+        this.state.screenKeptOn = true
+      }
+    } catch (e) {
+      console.log(`screen setting failed: ${e}`)
+    }
   },
 
   // Card with a check circle and the (wrapped) text; returns its height

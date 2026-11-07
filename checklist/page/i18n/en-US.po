@@ -52,3 +52,12 @@ msgstr "Delete all the items? The list stays. Also on the phone."
 msgid "none_checked"
 msgstr "No checked items"
 
+msgid "screen_on"
+msgstr "Screen on"
+
+msgid "screen_on_yes"
+msgstr "Always, in lists"
+
+msgid "screen_on_no"
+msgstr "No, turns off"
+

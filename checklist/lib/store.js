@@ -139,3 +139,22 @@ export function clearChecks(listId) {
   delete checked[listId]
   write('checked', checked)
 }
+
+// Keep the screen on while a list is open (toggle on the home page)
+export function keepScreenOn() {
+  return read('screenOn', false)
+}
+
+export function setKeepScreenOn(on) {
+  write('screenOn', on)
+}
+
+// Last list opened: the page reopened by the system when the wrist is raised
+// may not get its params back
+export function lastOpenList() {
+  return read('openList', null)
+}
+
+export function setLastOpenList(id) {
+  write('openList', id)
+}
