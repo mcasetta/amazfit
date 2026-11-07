@@ -1,0 +1,45 @@
+msgid "title"
+msgstr "Checklist"
+
+msgid "help"
+msgstr "Incolla o scrivi una lista, una voce per riga (puntini ammessi). Per dare un titolo scrivilo nella prima riga e lascia una riga vuota sotto. Apri l'app sull'orologio per riceverla."
+
+msgid "add"
+msgstr "+ Nuova lista"
+
+msgid "paste_here"
+msgstr "Incolla qui la lista"
+
+msgid "empty"
+msgstr "Nessuna lista."
+
+msgid "items"
+msgstr "voci"
+
+msgid "edit"
+msgstr "Modifica"
+
+msgid "delete"
+msgstr "Elimina"
+
+msgid "list"
+msgstr "Lista"
+
+msgid "rewrite"
+msgstr "Riscrivi"
+
+msgid "rename"
+msgstr "Rinomina"
+
+msgid "all_to_buy"
+msgstr "Tutte da prendere"
+
+msgid "all_bought"
+msgstr "Tutte prese"
+
+msgid "empty_list"
+msgstr "Svuota"
+
+msgid "no_items"
+msgstr "Nessuna voce"
+

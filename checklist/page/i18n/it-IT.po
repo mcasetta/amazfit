@@ -1,0 +1,54 @@
+msgid "app_title"
+msgstr "Checklist"
+
+msgid "syncing"
+msgstr "Aggiorno dal telefono..."
+
+msgid "synced"
+msgstr "Aggiornato"
+
+msgid "offline"
+msgstr "Telefono non raggiunto"
+
+msgid "empty"
+msgstr "Nessuna lista. Nella Zepp app apri le impostazioni di questa app e incolla una lista."
+
+msgid "all_done"
+msgstr "Tutto fatto!"
+
+msgid "taken"
+msgstr "fatti"
+
+msgid "list_missing"
+msgstr "Lista non trovata"
+
+msgid "clear_checks"
+msgstr "Togli spunte"
+
+msgid "clear_confirm"
+msgstr "Togliere tutte le spunte?"
+
+msgid "list_empty"
+msgstr "Vuota"
+
+msgid "no_items"
+msgstr "Nessuna voce: aggiungile dal telefono"
+
+msgid "check_all"
+msgstr "Spunta tutte"
+
+msgid "remove_checked"
+msgstr "Elimina spuntate"
+
+msgid "empty_list"
+msgstr "Svuota lista"
+
+msgid "remove_confirm"
+msgstr "Eliminare le %d voci spuntate? Anche dal telefono."
+
+msgid "empty_confirm"
+msgstr "Eliminare tutte le voci? La lista resta. Anche dal telefono."
+
+msgid "none_checked"
+msgstr "Nessuna voce spuntata"
+

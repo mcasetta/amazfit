@@ -1,0 +1,17 @@
+{
+  "name": "checklist",
+  "version": "1.0.0",
+  "description": "Checklist - lists pasted on the phone, checked off on the watch (Amazfit Balance 2 XT)",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@zeppos/device-types": "^3.0.0"
+  },
+  "dependencies": {
+    "@zeppos/zml": "^0.0.43"
+  }
+}

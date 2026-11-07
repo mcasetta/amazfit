@@ -1,0 +1,54 @@
+msgid "app_title"
+msgstr "Checklist"
+
+msgid "syncing"
+msgstr "Syncing with phone..."
+
+msgid "synced"
+msgstr "Up to date"
+
+msgid "offline"
+msgstr "Phone not reachable"
+
+msgid "empty"
+msgstr "No lists yet. In the Zepp app open this app's settings and paste a list."
+
+msgid "all_done"
+msgstr "All done!"
+
+msgid "taken"
+msgstr "done"
+
+msgid "list_missing"
+msgstr "List not found"
+
+msgid "clear_checks"
+msgstr "Uncheck all"
+
+msgid "clear_confirm"
+msgstr "Uncheck all the items?"
+
+msgid "list_empty"
+msgstr "Empty"
+
+msgid "no_items"
+msgstr "No items: add them from the phone"
+
+msgid "check_all"
+msgstr "Check all"
+
+msgid "remove_checked"
+msgstr "Delete checked"
+
+msgid "empty_list"
+msgstr "Empty list"
+
+msgid "remove_confirm"
+msgstr "Delete the %d checked items? Also on the phone."
+
+msgid "empty_confirm"
+msgstr "Delete all the items? The list stays. Also on the phone."
+
+msgid "none_checked"
+msgstr "No checked items"
+

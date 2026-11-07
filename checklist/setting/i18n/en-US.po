@@ -1,0 +1,45 @@
+msgid "title"
+msgstr "Checklist"
+
+msgid "help"
+msgstr "Paste or type a list, one item per line (bullets are fine). For a title, write it on the first line and leave an empty line below it. Open the app on the watch to receive it."
+
+msgid "add"
+msgstr "+ New list"
+
+msgid "paste_here"
+msgstr "Paste the list here"
+
+msgid "empty"
+msgstr "No lists yet."
+
+msgid "items"
+msgstr "items"
+
+msgid "edit"
+msgstr "Edit"
+
+msgid "delete"
+msgstr "Delete"
+
+msgid "list"
+msgstr "List"
+
+msgid "rewrite"
+msgstr "Rewrite"
+
+msgid "rename"
+msgstr "Rename"
+
+msgid "all_to_buy"
+msgstr "All to do"
+
+msgid "all_bought"
+msgstr "All done"
+
+msgid "empty_list"
+msgstr "Empty"
+
+msgid "no_items"
+msgstr "No items"
+
