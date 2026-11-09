@@ -1,0 +1,122 @@
+msgid "app_title"
+msgstr "Folders"
+
+msgid "folder_mine"
+msgstr "My apps"
+
+msgid "folder_sport"
+msgstr "Sport and health"
+
+msgid "folder_tools"
+msgstr "Tools"
+
+msgid "open_failed"
+msgstr "Cannot open:"
+
+msgid "empty"
+msgstr "Empty"
+
+msgid "view"
+msgstr "View"
+
+msgid "view_list"
+msgstr "List"
+
+msgid "view_grid"
+msgstr "Grid"
+
+msgid "grid_size"
+msgstr "Icons per page"
+
+msgid "edit"
+msgstr "Edit"
+
+msgid "add_app"
+msgstr "Add app"
+
+msgid "new_folder"
+msgstr "New folder"
+
+msgid "folder"
+msgstr "Folder"
+
+msgid "folder_content"
+msgstr "Contents"
+
+msgid "rename"
+msgstr "Rename"
+
+msgid "badge"
+msgstr "Letters"
+
+msgid "color"
+msgstr "Color"
+
+msgid "move_up"
+msgstr "Move up"
+
+msgid "move_down"
+msgstr "Move down"
+
+msgid "remove_app"
+msgstr "Remove"
+
+msgid "delete_folder"
+msgstr "Delete folder"
+
+msgid "not_placed"
+msgstr "Not added"
+
+msgid "first_level"
+msgstr "Main screen"
+
+msgid "nothing_to_add"
+msgstr "All apps are already here"
+
+msgid "app_sport"
+msgstr "Workout"
+
+msgid "app_sport_history"
+msgstr "Workout history"
+
+msgid "app_sport_status"
+msgstr "Training load"
+
+msgid "app_weather"
+msgstr "Weather"
+
+msgid "app_hr"
+msgstr "Heart rate"
+
+msgid "app_spo2"
+msgstr "Blood oxygen"
+
+msgid "app_phone"
+msgstr "Phone"
+
+msgid "app_music"
+msgstr "Music"
+
+msgid "app_alarm"
+msgstr "Alarm"
+
+msgid "app_calendar"
+msgstr "Calendar"
+
+msgid "app_settings"
+msgstr "Settings"
+
+msgid "app_compass"
+msgstr "Compass"
+
+msgid "app_altimeter"
+msgstr "Barometer"
+
+msgid "app_stopwatch"
+msgstr "Stopwatch"
+
+msgid "app_countdown"
+msgstr "Timer"
+
+msgid "app_voice_memo"
+msgstr "Voice memo"

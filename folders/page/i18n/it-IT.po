@@ -1,0 +1,122 @@
+msgid "app_title"
+msgstr "Cartelle"
+
+msgid "folder_mine"
+msgstr "Le mie app"
+
+msgid "folder_sport"
+msgstr "Sport e salute"
+
+msgid "folder_tools"
+msgstr "Strumenti"
+
+msgid "open_failed"
+msgstr "Impossibile aprire:"
+
+msgid "empty"
+msgstr "Vuota"
+
+msgid "view"
+msgstr "Vista"
+
+msgid "view_list"
+msgstr "Lista"
+
+msgid "view_grid"
+msgstr "Griglia"
+
+msgid "grid_size"
+msgstr "Icone per pagina"
+
+msgid "edit"
+msgstr "Modifica"
+
+msgid "add_app"
+msgstr "Aggiungi app"
+
+msgid "new_folder"
+msgstr "Nuova cartella"
+
+msgid "folder"
+msgstr "Cartella"
+
+msgid "folder_content"
+msgstr "Contenuto"
+
+msgid "rename"
+msgstr "Rinomina"
+
+msgid "badge"
+msgstr "Sigla"
+
+msgid "color"
+msgstr "Colore"
+
+msgid "move_up"
+msgstr "Sposta su"
+
+msgid "move_down"
+msgstr "Sposta giù"
+
+msgid "remove_app"
+msgstr "Togli"
+
+msgid "delete_folder"
+msgstr "Elimina cartella"
+
+msgid "not_placed"
+msgstr "Non inserita"
+
+msgid "first_level"
+msgstr "Primo livello"
+
+msgid "nothing_to_add"
+msgstr "Sono già tutte qui"
+
+msgid "app_sport"
+msgstr "Allenamento"
+
+msgid "app_sport_history"
+msgstr "Cronologia allenamento"
+
+msgid "app_sport_status"
+msgstr "Intensità allenamento"
+
+msgid "app_weather"
+msgstr "Meteo"
+
+msgid "app_hr"
+msgstr "Frequenza cardiaca"
+
+msgid "app_spo2"
+msgstr "Ossigeno nel sangue"
+
+msgid "app_phone"
+msgstr "Telefono"
+
+msgid "app_music"
+msgstr "Musica"
+
+msgid "app_alarm"
+msgstr "Sveglia"
+
+msgid "app_calendar"
+msgstr "Calendario"
+
+msgid "app_settings"
+msgstr "Impostazioni"
+
+msgid "app_compass"
+msgstr "Bussola"
+
+msgid "app_altimeter"
+msgstr "Altimetro barometrico"
+
+msgid "app_stopwatch"
+msgstr "Cronometro"
+
+msgid "app_countdown"
+msgstr "Conto alla rovescia"
+
+msgid "app_voice_memo"
+msgstr "Memo vocale"

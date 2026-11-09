@@ -1,0 +1,56 @@
+{
+  "configVersion": "v3",
+  "app": {
+    "appId": 23481,
+    "appName": "Folders",
+    "appType": "app",
+    "version": {
+      "code": 8,
+      "name": "0.3.1"
+    },
+    "icon": "icon.png",
+    "vender": "mcasetta",
+    "description": "Personal launcher that groups the watch apps into folders"
+  },
+  "permissions": [
+    "device:os.local_storage"
+  ],
+  "runtime": {
+    "apiVersion": {
+      "compatible": "4.0",
+      "target": "4.0",
+      "minVersion": "4.0"
+    }
+  },
+  "targets": {
+    "default": {
+      "module": {
+        "page": {
+          "pages": [
+            "page/index",
+            "page/folder",
+            "page/edit",
+            "page/item",
+            "page/pick",
+            "page/color"
+          ]
+        }
+      },
+      "platforms": [
+        {
+          "st": "r",
+          "dw": 480
+        }
+      ]
+    }
+  },
+  "i18n": {
+    "en-US": {
+      "appName": "Folders"
+    },
+    "it-IT": {
+      "appName": "Cartelle"
+    }
+  },
+  "defaultLanguage": "en-US"
+}
