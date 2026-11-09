@@ -4,10 +4,10 @@ Liste (spesa, ferramenta, valigia...) **incollate dal telefono** e **spuntate su
 Amazfit Balance 2 XT. Prima app del workspace che parla con il telefono.
 
 - Permessi: `device:os.local_storage`
-- appId: `23480` · API level: 4.0 · schermo: round 480x480 · versione 0.1.2
+- appId: `23480` · API level: 4.0 · schermo: round 480x480 · versione 0.1.5
 - Dipendenza: [`@zeppos/zml`](https://www.npmjs.com/package/@zeppos/zml) 0.0.43 (messaggi
   orologio ↔ telefono) → `npm install` prima di `zeus dev/build/preview`
-- Stato: ✅ funziona sull'orologio (v0.1.2, 2026-11-07) · 📱 da provare col telefono lontano
+- Stato: ✅ funziona (v0.1.5, 2026-11-09) · 📱 da provare col telefono lontano
 - Icona: tre righe di lista, due spuntate (`private/scripts/make-checklist-icon.ps1`)
 
 ## Come si usa
@@ -35,6 +35,10 @@ Amazfit Balance 2 XT. Prima app del workspace che parla con il telefono.
 - Se il campo di testo perde gli a capo, i puntini `•` separano comunque le voci
   (`Leroy Merlin • Pile • Mascherina`).
 - Una riga sola senza puntini si divide su virgole/punto e virgola (`latte, pane, uova`).
+- **Categorie**: una riga tutta in maiuscolo, senza puntino e seguita da una voce è
+  l'intestazione delle voci sotto (`COLAZIONE`), anche nelle liste a mano. Con il puntino
+  resta una voce (`• WC`); idem se dopo non c'è una voce normale (una lista scritta tutta in
+  maiuscolo resta una lista di voci). Il titolo ha la precedenza.
 - Voci doppie (maiuscole/minuscole ignorate) tenute una volta; max 100 voci da 100 caratteri.
 
 ## Cosa fa
@@ -58,7 +62,11 @@ Amazfit Balance 2 XT. Prima app del workspace che parla con il telefono.
   In fondo **Schermo acceso**: *No, si spegne* (default) / *Sempre, nelle liste*.
 - **Orologio — lista** (`page/list.js`): voci a capo su più righe, tocco = spunta (cerchio
   pieno, testo grigio, vibrazione leggera); le voci non si spostano. Ultima voce spuntata →
-  *Tutto fatto!* con doppia vibrazione. In fondo quattro pulsanti: **Spunta tutte**,
+  *Tutto fatto!* con doppia vibrazione. Le categorie sono etichette non toccabili e non
+  contano nel totale; senza voci visibili sparisce anche l'etichetta. In fondo cinque
+  pulsanti: **Nascondi / Mostra spuntate** (vale per tutte le liste e resta salvato: con
+  *Nascondi* una voce spuntata sparisce dopo 0,4 s, contatore e altri pulsanti considerano
+  sempre tutte le voci), **Spunta tutte**,
   **Togli spunte** (conferma), **Elimina spuntate** (conferma con il numero), **Svuota lista**
   (conferma, la lista resta).
 - **Schermo**: con una lista aperta, se lo schermo si spegne e il sistema chiude l'app,

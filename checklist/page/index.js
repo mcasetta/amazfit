@@ -5,7 +5,7 @@ import { BasePage } from '@zeppos/zml/base-page'
 import { loadLists, saveLists, lastSync, checkedCount, keepScreenOn, setKeepScreenOn } from '../lib/store'
 import { syncWithPhone } from '../lib/sync'
 import { createCard } from '../lib/ui'
-import { COLOR_TEXT, COLOR_TEXT_DIM } from '../lib/theme'
+import { COLOR_TEXT, COLOR_TEXT_DIM, COLOR_ACCENT, COLOR_BG_SETTING, COLOR_BG_SETTING_PRESSED } from '../lib/theme'
 import * as Styles from 'zosLoader:./index.[pf].layout.js'
 
 // Home: the lists pasted on the phone. Shows the stored copy at once, then
@@ -89,10 +89,11 @@ Page(
         y += Styles.LIST_STEP
       })
 
+      y += Styles.SETTINGS_GAP
       // Screen always on while a list is open (battery), decided here each time
       const screenCard = createCard(
-        { ...Styles.CARD, y },
-        { title: getText('screen_on'), subtitle: screenOnText() },
+        { ...Styles.CARD, y, color: COLOR_BG_SETTING, press_color: COLOR_BG_SETTING_PRESSED },
+        { title: getText('screen_on'), subtitle: screenOnText(), titleColor: COLOR_ACCENT },
         () => {
           setKeepScreenOn(!keepScreenOn())
           screenCard.setSecond(screenOnText())

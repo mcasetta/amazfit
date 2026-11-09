@@ -35,6 +35,13 @@ export const ROW = {
   text_size: px(28),
 }
 
+export const CATEGORY = {
+  x: px(70),
+  w: px(340),
+  h: px(40),
+  text_size: px(24),
+}
+
 export const EMPTY = {
   x: px(60),
   w: px(360),

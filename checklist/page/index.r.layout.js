@@ -20,6 +20,7 @@ export const STATUS = {
 
 export const LIST_Y = px(120)
 export const LIST_STEP = px(110)
+export const SETTINGS_GAP = px(24)
 
 export const CARD = {
   x: px(50),

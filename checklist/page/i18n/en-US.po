@@ -58,6 +58,15 @@ msgstr "Screen on"
 msgid "screen_on_yes"
 msgstr "Always, in lists"
 
+msgid "hide_checked"
+msgstr "Hide checked"
+
+msgid "show_checked"
+msgstr "Show checked"
+
+msgid "all_hidden"
+msgstr "All items are checked and hidden"
+
 msgid "screen_on_no"
 msgstr "No, turns off"
 

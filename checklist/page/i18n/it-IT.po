@@ -58,6 +58,15 @@ msgstr "Schermo acceso"
 msgid "screen_on_yes"
 msgstr "Sempre, nelle liste"
 
+msgid "hide_checked"
+msgstr "Nascondi spuntate"
+
+msgid "show_checked"
+msgstr "Mostra spuntate"
+
+msgid "all_hidden"
+msgstr "Tutte le voci sono spuntate e nascoste"
+
 msgid "screen_on_no"
 msgstr "No, si spegne"
 

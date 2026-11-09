@@ -1,11 +1,12 @@
 import { getText } from '@zos/i18n'
-import { createWidget, widget, align, prop, event, text_style } from '@zos/ui'
+import { createWidget, deleteWidget, widget, align, prop, event, text_style } from '@zos/ui'
 import { replace } from '@zos/router'
 import { createModal, MODAL_CONFIRM, showToast } from '@zos/interaction'
 import { setWakeUpRelaunch, setPageBrightTime, pauseDropWristScreenOff, resetDropWristScreenOff } from '@zos/display'
 import {
   getList,
   isChecked,
+  visibleItems,
   toggleItem,
   checkedCount,
   clearChecks,
@@ -13,9 +14,12 @@ import {
   removeChecked,
   emptyList,
   keepScreenOn,
+  hideChecked,
+  setHideChecked,
   lastOpenList,
   setLastOpenList,
 } from '../lib/store'
+import { categoryOf } from '../lib/parse'
 import { cueTap, cueDone } from '../lib/cues'
 import {
   COLOR_BG_CARD,
@@ -33,16 +37,22 @@ import {
 import * as Styles from 'zosLoader:./list.[pf].layout.js'
 
 const SCREEN_ON_MS = 60 * 60 * 1000
+// Pause between checking an item and removing it from view: the tap is seen,
+// and quick taps on several items do not move the rows under the finger
+const HIDE_DELAY_MS = 400
 
-// One list: tap an item to check it off (and again to bring it back).
-// Items keep their place so nothing moves under the finger. At the bottom:
-// check all, uncheck all, delete checked items, empty the list (the last two
-// change the list itself: queued and sent to the phone by the home page).
+// One list: tap an item to check it off (and again to bring it back). Items
+// keep their place, unless checked items are hidden: then a checked one goes
+// away shortly after the tap. At the bottom: show/hide checked, check all,
+// uncheck all, delete checked items, empty the list (the last two change the
+// list itself: queued and sent to the phone by the home page).
 Page({
   state: {
     list: null,
     counter: null,
     screenKeptOn: false,
+    body: [],
+    hideTimer: null,
   },
 
   onInit(params) {
@@ -79,50 +89,97 @@ Page({
       text: '',
     })
     this.updateCounter()
+    this.renderBody()
+  },
+
+  onDestroy() {
+    if (this.state.hideTimer !== null) clearTimeout(this.state.hideTimer)
+    // setPageBrightTime resets itself when the page closes
+    if (this.state.screenKeptOn) resetDropWristScreenOff()
+  },
+
+  // Items and buttons, below the title. Redrawn in place (not with replace)
+  // so that checking an item does not scroll back to the top
+  renderBody() {
+    const { list } = this.state
+    this.state.body.forEach((w) => deleteWidget(w))
+    const body = []
+    this.state.body = body
 
     let y = Styles.LIST_Y
     if (list.items.length === 0) {
-      createWidget(widget.TEXT, {
-        ...Styles.EMPTY,
-        y,
-        color: COLOR_TEXT_DIM,
-        align_h: align.CENTER_H,
-        text_style: text_style.WRAP,
-        text: getText('no_items'),
-      })
+      body.push(this.createMessage(getText('no_items'), y))
       return
     }
-    list.items.forEach((item) => {
-      y += this.createRow(item, y) + Styles.ROW_GAP
+
+    const items = visibleItems(list)
+    if (items.length === 0) {
+      body.push(this.createMessage(getText('all_hidden'), y))
+      y += Styles.EMPTY.h
+    }
+    let category = ''
+    items.forEach((item) => {
+      // Worked out on the visible items: a category with all of them hidden
+      // loses its heading too
+      const itemCategory = categoryOf(list, item)
+      if (itemCategory && itemCategory !== category) {
+        body.push(
+          createWidget(widget.TEXT, {
+            ...Styles.CATEGORY,
+            y,
+            color: COLOR_ACCENT,
+            align_h: align.CENTER_H,
+            align_v: align.CENTER_V,
+            text_style: text_style.ELLIPSIS,
+            text: itemCategory,
+          }),
+        )
+        y += Styles.CATEGORY.h + Styles.ROW_GAP
+      }
+      category = itemCategory
+      y += this.createRow(item, y, body) + Styles.ROW_GAP
     })
 
     y += Styles.ROW_GAP
     const buttons = [
+      {
+        text: hideChecked() ? 'show_checked' : 'hide_checked',
+        colors: [COLOR_BG_CARD, COLOR_BUTTON_PRESSED],
+        run: () => setHideChecked(!hideChecked()),
+      },
       { text: 'check_all', colors: [COLOR_ACCENT, COLOR_ACCENT_PRESSED], run: () => this.checkAll() },
       { text: 'clear_checks', colors: [COLOR_BG_CARD, COLOR_BUTTON_PRESSED], confirm: 'clear_confirm', run: () => clearChecks(list.id) },
       { text: 'remove_checked', colors: [COLOR_BG_CARD, COLOR_BUTTON_PRESSED], run: () => this.removeChecked() },
       { text: 'empty_list', colors: [COLOR_DANGER, COLOR_DANGER_PRESSED], confirm: 'empty_confirm', run: () => emptyList(list.id) },
     ]
     buttons.forEach((b) => {
-      createWidget(widget.BUTTON, {
-        ...Styles.ACTION_BUTTON,
-        y,
-        color: COLOR_TEXT,
-        normal_color: b.colors[0],
-        press_color: b.colors[1],
-        text: getText(b.text),
-        click_func: () => (b.confirm ? this.confirm(getText(b.confirm), b.run) : this.runAndRedraw(b.run)),
-      })
+      body.push(
+        createWidget(widget.BUTTON, {
+          ...Styles.ACTION_BUTTON,
+          y,
+          color: COLOR_TEXT,
+          normal_color: b.colors[0],
+          press_color: b.colors[1],
+          text: getText(b.text),
+          click_func: () => (b.confirm ? this.confirm(getText(b.confirm), b.run) : this.runAndRedraw(b.run)),
+        }),
+      )
       y += Styles.ACTION_BUTTON.h + Styles.ROW_GAP
     })
 
     // Lets the last item scroll above the narrow bottom of the round screen
-    createWidget(widget.TEXT, { ...Styles.BOTTOM_SPACER, y, text: '' })
+    body.push(createWidget(widget.TEXT, { ...Styles.BOTTOM_SPACER, y, text: '' }))
   },
 
-  onDestroy() {
-    // setPageBrightTime resets itself when the page closes
-    if (this.state.screenKeptOn) resetDropWristScreenOff()
+  createMessage(text, y) {
+    return createWidget(widget.TEXT, {
+      ...Styles.EMPTY,
+      y,
+      color: COLOR_TEXT_DIM,
+      align_h: align.CENTER_H,
+      text_style: text_style.WRAP,
+      text,
+    })
   },
 
   // Raising the wrist after the screen went off (and the system closed the
@@ -141,7 +198,7 @@ Page({
   },
 
   // Card with a check circle and the (wrapped) text; returns its height
-  createRow(item, y) {
+  createRow(item, y, body) {
     const { list } = this.state
     const S = Styles.ROW
     const lines = estimateLines(item, S.text_w, S.text_size)
@@ -179,6 +236,7 @@ Page({
       color: COLOR_TEXT,
       text: item,
     })
+    body.push(bg, ring, dot, text)
 
     const show = (checked) => {
       dot.setProperty(prop.VISIBLE, checked)
@@ -201,9 +259,19 @@ Page({
         } else {
           cueTap()
         }
+        if (hideChecked()) this.scheduleHide()
       })
     })
     return h
+  },
+
+  // Also keeps a row from being deleted inside its own tap handler
+  scheduleHide() {
+    if (this.state.hideTimer !== null) clearTimeout(this.state.hideTimer)
+    this.state.hideTimer = setTimeout(() => {
+      this.state.hideTimer = null
+      this.renderBody()
+    }, HIDE_DELAY_MS)
   },
 
   updateCounter() {

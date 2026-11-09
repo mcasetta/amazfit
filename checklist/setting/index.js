@@ -1,5 +1,5 @@
 import { gettext } from 'i18n'
-import { parseList, formatList } from '../lib/parse'
+import { parseList, formatList, categoryOf } from '../lib/parse'
 import { LISTS_KEY, readLists } from '../lib/phone-lists'
 
 const COLOR_ACCENT = '#26a69a'
@@ -26,14 +26,20 @@ AppSettingsPage({
         const parsed = parseList(text)
         if (parsed.items.length === 0) return
         const now = Date.now()
-        const list = { id: now.toString(36), title: parsed.title || defaultTitle(now), items: parsed.items, updated: now }
+        const list = {
+          id: now.toString(36),
+          title: parsed.title || defaultTitle(now),
+          items: parsed.items,
+          categories: parsed.categories,
+          updated: now,
+        }
         save([list, ...lists])
       },
       // Edit and rewrite: a text without a title keeps the current one
       edit(index, text) {
         const parsed = parseList(text)
         if (parsed.items.length === 0) return
-        update(index, { title: parsed.title || lists[index].title, items: parsed.items })
+        update(index, { title: parsed.title || lists[index].title, items: parsed.items, categories: parsed.categories })
       },
       rename(index, text) {
         const title = text.replace(/\s+/g, ' ').trim()
@@ -120,7 +126,7 @@ function listCard(list, index, count, actions) {
       Text({ paragraph: true, style: { fontSize: '12px', color: COLOR_DIM, marginBottom: '6px' } }, [
         list.items.length === 0 ? gettext('no_items') : `${list.items.length} ${gettext('items')}`,
       ]),
-      ...list.items.map((item) => Text({ paragraph: true, style: { fontSize: '14px' } }, [`• ${item}`])),
+      ...itemLines(list),
 
       View({ style: { display: 'flex', flexDirection: 'row', marginTop: '10px' } }, [
         textAction(gettext('edit'), formatList(list), (text) => actions.edit(index, text), true),
@@ -137,6 +143,23 @@ function listCard(list, index, count, actions) {
       ]),
     ],
   )
+}
+
+// The items of a card, with a heading where the category changes
+function itemLines(list) {
+  const lines = []
+  let current = ''
+  list.items.forEach((item) => {
+    const category = categoryOf(list, item)
+    if (category && category !== current) {
+      lines.push(
+        Text({ bold: true, paragraph: true, style: { fontSize: '13px', color: COLOR_ACCENT, marginTop: '6px' } }, [category]),
+      )
+    }
+    current = category
+    lines.push(Text({ paragraph: true, style: { fontSize: '14px' } }, [`• ${item}`]))
+  })
+  return lines
 }
 
 // Text field shown as a link: tapping it opens the phone's input dialog

@@ -4,11 +4,13 @@ import { COLOR_BG_CARD, COLOR_BG_CARD_PRESSED, COLOR_TEXT, COLOR_TEXT_DIM } from
 // Rounded tappable card with a left label and an optional right value or a
 // second line. Returns setters to update the texts later and the widgets.
 //
-// style: { x, y, w, h, radius, padding, text_size, sub_text_size }
+// style: { x, y, w, h, radius, padding, text_size, sub_text_size, color?, press_color? }
 // content: { title, value?, subtitle?, titleColor? }
 export function createCard(style, content, onTap) {
   const { x, y, w, h, radius, padding } = style
-  const bg = createWidget(widget.FILL_RECT, { x, y, w, h, radius, color: COLOR_BG_CARD })
+  const color = style.color || COLOR_BG_CARD
+  const pressColor = style.press_color || COLOR_BG_CARD_PRESSED
+  const bg = createWidget(widget.FILL_RECT, { x, y, w, h, radius, color })
 
   const twoLines = content.subtitle !== undefined
   const titleWidget = createWidget(widget.TEXT, {
@@ -54,7 +56,7 @@ export function createCard(style, content, onTap) {
   if (onTap) {
     // Texts sit on top of the background, so every widget must forward the tap
     const setPressed = (pressed) =>
-      bg.setProperty(prop.MORE, { color: pressed ? COLOR_BG_CARD_PRESSED : COLOR_BG_CARD })
+      bg.setProperty(prop.MORE, { color: pressed ? pressColor : color })
     widgets.forEach((w) => {
       w.addEventListener(event.CLICK_DOWN, () => setPressed(true))
       w.addEventListener(event.CLICK_UP, () => {

@@ -149,6 +149,22 @@ export function setKeepScreenOn(on) {
   write('screenOn', on)
 }
 
+// Leave checked items out of the lists (button inside a list, for all of them)
+export function hideChecked() {
+  return read('hideChecked', false)
+}
+
+export function setHideChecked(hide) {
+  write('hideChecked', hide)
+}
+
+// The items to draw when a list is opened
+export function visibleItems(list) {
+  if (!hideChecked()) return list.items
+  const checks = checksOf(list.id)
+  return list.items.filter((item) => !checks[item.toLowerCase()])
+}
+
 // Last list opened: the page reopened by the system when the wrist is raised
 // may not get its params back
 export function lastOpenList() {
